@@ -1,0 +1,147 @@
+.profile-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #dadada;
+    color: #272838;
+    font-family: var(--tgm-sys-font-family-primary);
+
+
+    &__account-wrapper {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    &__header-title {
+        width: fit-content;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    &__account-container {
+        box-sizing: border-box;
+        height: 100%;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        overflow: hidden;
+    }
+
+    &__account-card {
+        cursor: pointer;
+        height: 100%;
+        flex: 0 0 93%;
+        background-color: #F9F8F8;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    &__account-number {
+        margin-bottom: 5px;
+        font-size: 15px;
+        opacity: 0.8;
+        margin: 15px 15px 0 15px;
+    }
+
+    &__account-balance {
+        font-size: 25px;
+        font-weight: bold;
+        margin: 0 15px;
+    }
+
+    &__account-movements {
+        margin-top: 5px;
+        width: 100%;
+
+        >span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0.8;
+            margin: 0 15px;
+
+            a {
+                transition: all 0.3s ease;
+            }
+
+            a:hover {
+                color: #F3DE8A;
+            }
+        }
+    }
+
+    &__accounts-cards-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    &__movement-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #F3DE8A;
+        }
+    }
+
+    &__movement-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background-color: #272838;
+        border-radius: 50%;
+
+        >i {
+            font-size: 25px;
+        }
+    }
+
+    &__movement-central-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__card-wrapper {
+        height: 100%;
+        width: 350px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &__card-container {
+        cursor: pointer;
+        flex: 0 0 45%;
+        height: 45%;
+        width: 100%;
+        border-radius: 8px;
+        background-image: url(/assets/card-image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &__card-number {
+        margin: 6px;
+        font-size: 18px;
+        color: #F9F8F8;
+        letter-spacing: 2px;
+    }
+}

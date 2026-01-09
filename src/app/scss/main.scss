@@ -1,0 +1,26 @@
+@forward "./03_global/_index";
+@forward "./02_base/_index";
+@forward "./04_components/_index";
+
+.swal2-popup {
+  font-family: var(--tgm-sys-font-family-primary);
+  background-color: var(--tgm-sys-color-background);
+}
+
+.swal2-title {
+  font-weight: var(--tgm-sys-font-weight-700);
+}
+
+.swal2-html-container {
+  font-weight: var(--tgm-sys-font-weight-400);
+}
+
+.swal2-confirm {
+  background-color: var(--tgm-sys-color-primary);
+  color: var(--tgm-sys-color-secondary);
+}
+
+.swal2-confirm:hover {
+  background-color: var(--tgm-sys-color-secondary);
+  color: var(--tgm-sys-color-primary);
+}

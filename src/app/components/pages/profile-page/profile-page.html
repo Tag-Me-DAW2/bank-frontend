@@ -1,0 +1,51 @@
+<div class="profile-page">
+    <h1 class="profile-page__header-title">MY ACCOUNTS</h1>
+    <div class="profile-page__account-wrapper">
+        <div class="profile-page__account-container">
+            <embla-slider direction="horizontal" (selectedItemIndex)="onAccountSelected($event)">
+                @for (account of accounts; track $index) {
+                <div class="profile-page__account-card">
+                    <div class="profile-page__account-number">{{ account.iban }}</div>
+                    <div class="profile-page__account-balance">{{ account.balance | currency }}</div>
+
+                    <div class="profile-page__account-movements">
+                        <span>
+                            Recent Movements
+                            <a>See more</a>
+                        </span>
+
+                        <div class="profile-page__accounts-cards-wrapper">
+                            @for (movement of account.bankMovements.slice(0, 4); track $index) {
+                            <div class="profile-page__movement-item">
+                                <span class="profile-page__movement-type">
+                                    <i class='bx  bx-trending-down' style='color:#F9F8F8'
+                                        [class.bx-trending-up]="movement.movementType == 'DEPOSIT'"></i>
+                                </span>
+                                <div class="profile-page__movement-central-info">
+                                    <span class="profile-page__movement-description">{{ movement.movementSource
+                                        }}</span>
+                                    <span class="profile-page__movement-date">{{ movement.date |
+                                        date:'shortDate'
+                                        }}</span>
+                                </div>
+                                <span class="profile-page__movement-amount">{{ movement.amount | currency
+                                    }}</span>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+            </embla-slider>
+        </div>
+        <div class="profile-page__card-wrapper">
+            <embla-slider direction="vertical">
+                @for (card of selectedAccount.bankCards; track $index) {
+                <div class="profile-page__card-container">
+                    <div class="profile-page__card-number">{{ card.cardNumber }}</div>
+                </div>
+                }
+            </embla-slider>
+        </div>
+    </div>
+</div>
