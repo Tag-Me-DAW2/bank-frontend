@@ -1,5 +1,5 @@
 export interface BankCardSummaryResponse {
-  id: string,
-  cardNumber: string,
-  cardHolderName: string
+  id: number,
+  number: string,
+  fullName: string
 }

@@ -1,8 +1,11 @@
+import { BankCardSummaryResponse } from "../bank-card/bankCardSummaryResponse";
+
 export interface BankMovementDetail {
-  id: string,
-  amount: number,
+  id: number,
+  type: 'DEPOSIT' | 'WITHDRAWAL',
+  origin: 'BANK_ACCOUNT' | 'BANK_CARD' | 'DOMICILIATION' 
+  creditCard: BankCardSummaryResponse,
   date: Date,
-  description: string,
-  movementType: 'DEPOSIT' | 'WITHDRAWAL',
-  movementSource: 'BANK_ACCOUNT' | 'BANK_CARD' | 'DOMICILIATION',
+  amount: number,
+  concept: string
 }

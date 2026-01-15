@@ -1,0 +1,67 @@
+<div class="movements-page">
+    <a routerLink="/bank/profile/{{user.id}}">
+        <i class='bx  bx-arrow-left-stroke' style='color:#272838'></i>
+    </a>
+    <div class="movements-page__left-side">
+        <div class="movements-page__account-container">
+            <h3>{{ user }}</h3>
+            <h1>{{ account.balance | currency }}</h1>
+            <p>{{ account.iban }}</p>
+        </div>
+        <div class="movements-page__movements-list">
+            @for (movement of movements; track $index) {
+            <div class="movements-page__movement-item" (click)="onSelectedMovement(movement.id)">
+                <span class="movements-page__movement-type">
+                    <i class='bx  bx-trending-down' style='color:#F9F8F8'
+                        [class.bx-trending-up]="movement.type == 'DEPOSIT'"></i>
+                </span>
+                <div class="movements-page__movement-central-info">
+                    <span class="movements-page__movement-description">{{ movement.origin
+                        }}</span>
+                    <span class="movements-page__movement-date">{{ movement.date |
+                        date:'shortDate'
+                        }}</span>
+                </div>
+                <span class="movements-page__movement-amount">
+                    @if (movement.type == 'WITHDRAWAL') {
+                        - 
+                    } @else {
+                        +
+                    }
+                    {{ movement.amount | currency}}</span>
+            </div>
+            }
+        </div>
+    </div>
+    <div class="movements-page__right-side">
+        @if (selectedMovements) {
+        <div class="movements-page__movement-detail-header">
+            <span class="movements-page__movement-type movements-page__movement-type--header">
+                <i class='bx  bx-trending-down' style='color:#F9F8F8'
+                    [class.bx-trending-up]="selectedMovements.type == 'DEPOSIT'"></i>
+            </span>
+            <div class="movements-page__movement-central-info">
+                <span class="movements-page__movement-description">{{ selectedMovements.origin
+                    }}</span>
+            </div>
+            <span class="movements-page__movement-amount movements-page__movement-amount--header">{{
+                selectedMovements.amount | currency
+                }}</span>
+            <span class="movements-page__movement-date movements-page__movement-date--header">
+                {{ selectedMovements.date | date:'shortDate' }} a las {{
+                selectedMovements.date | date:'HH:mm' }}h.
+            </span>
+        </div>
+        <div class="movements-page__movements-detail-body">
+            <div class="movements-page__movements-detail-item">
+                <h2>Credit Card</h2>
+                <p>{{ selectedMovements.creditCard?.number }}</p>
+            </div>
+            <div class="movements-page__movements-detail-item">
+                <h2>Description</h2>
+                <p>{{ selectedMovements?.concept }}</p>
+            </div>
+        </div>
+        }
+    </div>
+</div>

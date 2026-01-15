@@ -1,0 +1,257 @@
+:host {
+    width: 100%;
+    padding: 70px 0;
+    font-family: var(--tgm-sys-font-family-primary);
+}
+
+.stats-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    &__content {
+        height: 400px;
+        width: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        box-sizing: border-box;
+    }
+
+    &__movements-summary-amount {
+        height: 100%;
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+    }
+
+    &__amount-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #F9F8F8;
+        font-size: 20px;
+        border-radius: 8px;
+        gap: 15px;
+        padding: 25px 30px;
+    }
+
+    &__amount-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        color: #272838;
+    }
+
+    &__amount-value {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: #272838;
+
+        i {
+            font-size: 25px;
+        }
+    }
+
+    &__stats-bars-container {
+        height: 100%;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 15px;
+    }
+
+    &__bar-content {
+        min-height: 5%;
+        flex: 1;
+        transition: all 0.5s ease;
+        border-radius: 4px;
+
+        &--left-bar {
+            background-color: #272838;
+        }
+
+        &--right-bar {
+            background-color: #F3DE8A;
+        }
+
+    }
+
+    &__right-side {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__calendar {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__daily-movements {
+        width: 100%;
+        max-height: 250px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-right: 8px;
+
+        // Scrollbar moderno y minimalista
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(39, 40, 56, 0.2);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background: rgba(39, 40, 56, 0.4);
+            }
+
+            &:active {
+                background: rgba(39, 40, 56, 0.6);
+            }
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        scrollbar-width: thin;
+        scrollbar-color: rgba(39, 40, 56, 0.2) transparent;
+    }
+
+    &__daily-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #272838;
+        margin: 0;
+    }
+
+    &__daily-movement-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #F9F8F8;
+        font-size: 16px;
+        border-radius: 4px;
+        gap: 15px;
+        padding: 18px 20px;
+    }
+
+    &__movement-type {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        background-color: #272838;
+        border-radius: 50%;
+        gap: 10px;
+
+        i {
+            font-size: 20px;
+        }
+    }
+
+}
+
+.deposit {
+    color: #28a745;
+}
+
+.withdrawal {
+    color: #dc3545;
+}
+
+.stats-page__calendar {
+    ::ng-deep {
+        .mat-calendar-header {
+            background-color: #F9F8F8;
+            color: white;
+            padding: 25px 10px;
+        }
+
+        .mat-calendar-controls {
+            margin: 0;
+        }
+
+        .mat-calendar-content {
+            background-color: #F9F8F8;
+        }
+
+
+        .mat-calendar-body-selected {
+            background-color: #F3DE8A !important;
+            color: #272838 !important;
+            box-shadow: none !important;
+        }
+
+        .mat-calendar-body-cell-content:hover {
+            box-shadow: none;
+        }
+
+        .mat-calendar-body-today {
+            border-color: #F3DE8A !important;
+        }
+
+        .mat-focus-indicator:hover {
+            background-color: #F6E5AB !important;
+        }
+
+        .mat-calendar-previous-button:hover,
+        .mat-calendar-next-button:hover {
+            background-color: #F6E5AB !important;
+        }
+
+        .has-movements::after {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 70%;
+            width: 8px;
+            height: 8px;
+            background-color: #F3DE8A;
+            border-radius: 50%;
+            z-index: 10;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+
+        .mat-calendar-body-selected.has-movements::after {
+            background-color: #272838 !important;
+            border-color: #F3DE8A !important;
+        }
+
+        .mat-calendar-body-today.has-movements::after {
+            border-color: #F3DE8A !important;
+        }
+    }
+}

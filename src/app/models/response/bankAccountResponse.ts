@@ -2,9 +2,9 @@ import { BankCardSummaryResponse } from "./bank-card/bankCardSummaryResponse";
 import { BankMovementSummaryResponse } from "./bank-movement/bankMovementSummaryResponse";
 
 export interface BankAccountResponse {
-  id: string,
-  balance: number,
+  id: number,
   iban: string,
-  bankCards: BankCardSummaryResponse[],
-  bankMovements: BankMovementSummaryResponse[]
+  balance: number,
+  movements: BankMovementSummaryResponse[]
+  cards: BankCardSummaryResponse[],
 }

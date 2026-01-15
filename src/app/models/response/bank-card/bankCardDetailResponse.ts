@@ -1,7 +1,7 @@
 export interface BankCardDetailResponse {
-  id: string,
-  cardNumber: string,
-  cardHolderName: string,
-  expirationDate: string,
-  cvv: string
+  id: number,
+  number: string,
+  expirationDate: Date,
+  cvv: string,
+  fullName: string
 }
