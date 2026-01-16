@@ -13,7 +13,7 @@ export class BankMovementsService {
   url: string = 'http://localhost:8080/movements';
 
   getMovementsByAccountId(accountId: number): Observable<PageInterface<BankMovementSummaryResponse>> {
-    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(this.url + `/account/${accountId}`);
+    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(this.url + `/account/${accountId}` + `?page=1&size=1000`);
   }
 
   getMovementById(movementId: number): Observable<BankMovementDetail> {

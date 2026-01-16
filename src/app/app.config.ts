@@ -5,6 +5,7 @@ import localeEs from '@angular/common/locales/es';
 
 import { routes } from './app.routes';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth-interceptor';
 
 registerLocaleData(localeEs);
 
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     
     provideHttpClient(withInterceptorsFromDi()),
     { provide: LOCALE_ID, useValue: 'es-ES' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 };

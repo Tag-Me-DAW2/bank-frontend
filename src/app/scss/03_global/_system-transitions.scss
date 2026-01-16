@@ -1,0 +1,7 @@
+@use '../01_utilities/variables' as vars;
+
+:root {
+  @each $key, $value in vars.$transitions {
+    --#{$key}: #{$value};
+  }
+}

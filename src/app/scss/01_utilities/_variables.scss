@@ -27,11 +27,13 @@ $font-sizes: (
   'tgm-sys-font-size-12': 12px,
   'tgm-sys-font-size-14': 14px,
   'tgm-sys-font-size-16': 16px,
+  'tgm-sys-font-size-18': 18px,
   'tgm-sys-font-size-20': 20px,
   'tgm-sys-font-size-24': 24px,
   'tgm-sys-font-size-25': 25px,
   'tgm-sys-font-size-26': 26px,
   'tgm-sys-font-size-28': 28px,
+  'tgm-sys-font-size-30': 30px,
   'tgm-sys-font-size-32': 32px,
   'tgm-sys-font-size-40': 40px,
   'tgm-sys-font-size-48': 48px,
@@ -59,6 +61,7 @@ $spacing: (
 $border-radius: (
   'tgm-sys-border-radius-small': 4px,
   'tgm-sys-border-radius-medium': 8px,
+  'tgm-sys-border-radius-10': 10px,
   'tgm-sys-border-radius-large': 16px,
   'tgm-sys-border-radius-xlarge': 32px,
   'tgm-sys-border-radius-circle': 50%,
@@ -75,12 +78,15 @@ $fixed-heights: (
   'tgm-sys-height-200': 200px,
   'tgm-sys-height-250': 250px,
   'tgm-sys-height-300': 300px,
+  'tgm-sys-height-400': 400px,
   'tgm-sys-height-viewport': 100vh,
 );
 // Fixed widths
 $fixed-widths: (
   'tgm-sys-width-2': 2px,
   'tgm-sys-width-5': 5px,
+  'tgm-sys-width-6': 6px,
+  'tgm-sys-width-8': 8px,
   'tgm-sys-width-10': 10px,
   'tgm-sys-width-16': 16px,
   'tgm-sys-width-30': 30px,
@@ -93,8 +99,10 @@ $fixed-widths: (
   'tgm-sys-width-200': 200px,
   'tgm-sys-width-250': 250px,
   'tgm-sys-width-300': 300px,
+  'tgm-sys-width-350': 350px,
   'tgm-sys-width-400': 400px,
   'tgm-sys-width-500': 500px,
+  'tgm-sys-width-600': 600px,
   'tgm-sys-width-800': 800px,
 );
 // Percentages
@@ -136,20 +144,27 @@ $paddings: (
   'tgm-sys-padding-10': 10px,
   'tgm-sys-padding-12': 12px,
   'tgm-sys-padding-14': 14px,
+  'tgm-sys-padding-15': 15px,
+  'tgm-sys-padding-18': 18px,
   'tgm-sys-padding-20': 20px,
+  'tgm-sys-padding-25': 25px,
   'tgm-sys-padding-30': 30px,
   'tgm-sys-padding-35': 35px,
   'tgm-sys-padding-40': 40px,
   'tgm-sys-padding-50': 50px,
+  'tgm-sys-padding-70': 70px,
 );
 // Margins
 $margins: (
   'tgm-sys-margin-3': 3px,
   'tgm-sys-margin-4': 4px,
   'tgm-sys-margin-5': 5px,
+  'tgm-sys-margin-6': 6px,
   'tgm-sys-margin-10': 10px,
+  'tgm-sys-margin-15': 15px,
   'tgm-sys-margin-20': 20px,
   'tgm-sys-margin-30': 30px,
+  'tgm-sys-margin-35': 35px,
   'tgm-sys-margin-40': 40px,
   'tgm-sys-margin-50': 50px,
   'tgm-sys-margin-60': 60px,
@@ -160,4 +175,9 @@ $box-shadows: (
   'tgm-sys-box-shadow-light': 0 2px 4px rgba(0, 0, 0, 0.1),
   'tgm-sys-box-shadow-medium': 0 4px 8px rgba(0, 0, 0, 0.1),
   'tgm-sys-box-shadow-heavy': 0 8px 16px rgba(0, 0, 0, 0.2),
+);
+
+// Transitions
+$transitions: (
+  'tgm-sys-transition-smooth': all 0.3s ease,
 );

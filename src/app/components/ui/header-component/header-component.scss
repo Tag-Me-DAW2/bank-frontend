@@ -1,0 +1,58 @@
+:host {
+    // Variables para .header
+    --header-width: var(--tgm-sys-percentage-100);
+    --header-height: var(--tgm-sys-height-70);
+    --header-background-color: var(--tgm-sys-color-secondary);
+    --header-padding: 0 var(--tgm-sys-padding-40);
+
+    // Variables para .header__logout-button
+    --header-logout-button-background-color: var(--tgm-sys-color-primary);
+    --header-logout-button-color: var(--tgm-sys-color-secondary);
+    --header-logout-button-font-size: var(--tgm-sys-font-size-16);
+    --header-logout-button-font-weight: var(--tgm-sys-font-weight-600);
+    --header-logout-button-padding: var(--tgm-sys-padding-12) var(--tgm-sys-padding-25);
+    --header-logout-button-border-radius: var(--tgm-sys-border-radius-small);
+    --header-logout-button-gap: var(--tgm-sys-gap-8);
+    --header-logout-button-transition: var(--tgm-sys-transition-smooth);
+    --header-logout-button-hover-background: var(--tgm-sys-color-primary-strong);
+    --header-logout-button-icon-font-size: var(--tgm-sys-font-size-20);
+
+    top: 0;
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header {
+    width: var(--header-width);
+    height: var(--header-height);
+    background-color: var(--header-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--header-padding);
+    box-sizing: border-box;
+
+    &__logout-button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: var(--header-logout-button-gap);
+        background-color: var(--header-logout-button-background-color);
+        color: var(--header-logout-button-color);
+        font-size: var(--header-logout-button-font-size);
+        font-weight: var(--header-logout-button-font-weight);
+        padding: var(--header-logout-button-padding);
+        border: none;
+        border-radius: var(--header-logout-button-border-radius);
+        transition: var(--header-logout-button-transition);
+
+        i {
+            font-size: var(--header-logout-button-icon-font-size);
+        }
+
+        &:hover {
+            background-color: var(--header-logout-button-hover-background);
+        }
+    }
+}

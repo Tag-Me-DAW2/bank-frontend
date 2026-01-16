@@ -1,147 +1,199 @@
-// Variables del componente movements-page
+:host {
 
-// Colores del componente
-$movements-page-background-color: var(--tgm-sys-color-background-card);
-$movements-page-primary-color: var(--tgm-sys-color-primary);
-$movements-page-secondary-color: var(--tgm-sys-color-secondary);
-$movements-page-text-dark: #333333;
-$movements-page-text-black: #000000;
-$movements-page-text-gray: #666666;
-$movements-page-border-light: #E0E0E0;
-$movements-page-border-gray: #d7d7d7;
+    // Variables para .movements-page
+    --movements-page-height: var(--tgm-sys-percentage-100);
+    --movements-page-width: var(--tgm-sys-percentage-100);
+    --movements-page-font-family: var(--tgm-sys-font-family-primary);
+    --movements-page-background-color: var(--tgm-sys-color-background-card);
 
-// Tipografía del componente
-$movements-page-font-family: var(--tgm-sys-font-family-primary);
-$movements-page-font-size-icon-large: var(--tgm-sys-font-size-30);
-$movements-page-font-size-amount-header: var(--tgm-sys-font-size-30);
-$movements-page-font-size-header-large: var(--tgm-sys-font-size-28);
-$movements-page-font-size-icon-medium: var(--tgm-sys-font-size-25);
-$movements-page-font-size-header-medium: var(--tgm-sys-font-size-18);
-$movements-page-font-size-detail: var(--tgm-sys-font-size-16);
-$movements-page-font-size-small: var(--tgm-sys-font-size-14);
-$movements-page-font-size-header-icon: 40px;
-$movements-page-font-size-header-icon-inner: 45px;
-$movements-page-font-weight-medium: var(--tgm-sys-font-weight-500);
-$movements-page-font-weight-semibold: var(--tgm-sys-font-weight-600);
+    // Variables para .movements-page > a
+    --movements-page-link-font-size: var(--tgm-sys-font-size-30);
+    --movements-page-link-margin: var(--tgm-sys-margin-10);
 
-// Dimensiones del componente
-$movements-page-full-height: var(--tgm-sys-percentage-100);
-$movements-page-full-width: var(--tgm-sys-percentage-100);
-$movements-page-left-min-width: var(--tgm-sys-width-500);
-$movements-page-right-min-width: var(--tgm-sys-width-400);
-$movements-page-icon-size: var(--tgm-sys-width-40);
-$movements-page-icon-header-size: 65px;
-$movements-page-detail-width: 80%;
+    // Variables para .movements-page__left-side
+    --movements-page-left-side-height: var(--tgm-sys-percentage-100);
+    --movements-page-left-side-min-width: var(--tgm-sys-width-500);
+    --movements-page-left-side-flex: 3;
+    --movements-page-left-side-padding: var(--tgm-sys-padding-20);
 
-// Espaciado del componente
-$movements-page-padding-main: var(--tgm-sys-padding-20);
-$movements-page-padding-medium: var(--tgm-sys-padding-15);
-$movements-page-padding-small: var(--tgm-sys-padding-10);
-$movements-page-padding-detail: var(--tgm-sys-padding-15);
-$movements-page-padding-section: var(--tgm-sys-padding-25);
-$movements-page-padding-vertical: var(--tgm-sys-padding-35);
-$movements-page-gap-medium: var(--tgm-sys-gap-15);
-$movements-page-gap-small: var(--tgm-sys-gap-10);
-$movements-page-margin-small: var(--tgm-sys-margin-10);
-$movements-page-margin-top: var(--tgm-sys-margin-35);
-$movements-page-margin-xs: var(--tgm-sys-margin-5);
+    // Variables para .movements-page__account-container
+    --movements-page-account-container-width: var(--tgm-sys-percentage-100);
+    --movements-page-account-container-background-color: var(--tgm-sys-color-primary);
+    --movements-page-account-container-border-radius: var(--tgm-sys-border-radius-small);
+    --movements-page-account-container-gap: var(--tgm-sys-gap-10);
+    --movements-page-account-container-padding: var(--tgm-sys-padding-15);
+    --movements-page-account-container-h3-font-size: var(--tgm-sys-font-size-18);
+    --movements-page-account-container-h3-color: #333333;
+    --movements-page-account-container-h1-font-size: var(--tgm-sys-font-size-28);
+    --movements-page-account-container-h1-color: #000000;
+    --movements-page-account-container-p-margin-top: var(--tgm-sys-margin-5);
+    --movements-page-account-container-p-font-size: var(--tgm-sys-font-size-14);
+    --movements-page-account-container-p-color: #666666;
 
-// Border radius del componente
-$movements-page-border-radius-small: var(--tgm-sys-border-radius-small);
-$movements-page-border-radius-circle: var(--tgm-sys-border-radius-circle);
+    // Variables para .movements-page__movements-list
+    --movements-page-movements-list-height: 100%;
+    --movements-page-movements-list-width: 100%;
+    --movements-page-movements-list-border-top-width: 2px;
+    --movements-page-movements-list-border-top-color: #F3DE8A;
+    --movements-page-movements-list-margin-top: var(--tgm-sys-margin-35);
+    --movements-page-movements-list-padding-right: var(--tgm-sys-margin-10);
+    --movements-page-movements-list-padding-top: var(--tgm-sys-padding-15);
 
-// Borders del componente
-$movements-page-border-width: 2px;
-$movements-page-border-width-thin: 1px;
+    // Variables para .movements-page__movement-item
+    --movements-page-movement-item-width: 100%;
+    --movements-page-movement-item-gap: var(--tgm-sys-gap-15);
+    --movements-page-movement-item-padding-vertical: var(--tgm-sys-padding-10);
+    --movements-page-movement-item-padding-horizontal: var(--tgm-sys-padding-15);
+    --movements-page-movement-item-transition: var(--tgm-sys-transition-smooth);
+    --movements-page-movement-item-hover-background: #F3DE8A;
 
-// Flex del componente
-$movements-page-flex-left: 3;
-$movements-page-flex-right: 2;
-$movements-page-flex-detail-header: 1;
-$movements-page-flex-detail-body: 3;
-$movements-page-flex-central: 1;
+    // Variables para .movements-page__movement-type
+    --movements-page-movement-type-height: var(--tgm-sys-width-40);
+    --movements-page-movement-type-width: var(--tgm-sys-width-40);
+    --movements-page-movement-type-background-color: #272838;
+    --movements-page-movement-type-border-radius: var(--tgm-sys-border-radius-circle);
+    --movements-page-movement-type-icon-font-size: var(--tgm-sys-font-size-25);
 
-// Efectos del componente
-$movements-page-transition: var(--tgm-sys-transition-smooth);
+    // Variables para .movements-page__movement-type--header
+    --movements-page-movement-type-header-height: 65px;
+    --movements-page-movement-type-header-width: 65px;
+    --movements-page-movement-type-header-font-size: 40px;
+    --movements-page-movement-type-header-icon-font-size: 45px;
+
+    // Variables para .movements-page__movement-central-info
+    --movements-page-movement-central-info-flex: 1;
+
+    // Variables para .movements-page__movement-amount--header
+    --movements-page-movement-amount-header-font-size: var(--tgm-sys-font-size-30);
+    --movements-page-movement-amount-header-font-weight: var(--tgm-sys-font-weight-600);
+    --movements-page-movement-amount-header-margin: var(--tgm-sys-margin-10) 0;
+
+    // Variables para .movements-page__movement-date--header
+    --movements-page-movement-date-header-font-size: var(--tgm-sys-font-size-18);
+    --movements-page-movement-date-header-font-weight: var(--tgm-sys-font-weight-500);
+
+    // Variables para .movements-page__right-side
+    --movements-page-right-side-flex: 2;
+    --movements-page-right-side-min-width: var(--tgm-sys-width-400);
+    --movements-page-right-side-border-left-width: 1px;
+    --movements-page-right-side-border-left-color: #E0E0E0;
+    --movements-page-right-side-padding-vertical: var(--tgm-sys-padding-35);
+
+    // Variables para .movements-page__movement-detail-header
+    --movements-page-movement-detail-header-flex: 1;
+    --movements-page-movement-detail-header-width: 80%;
+    --movements-page-movement-detail-header-gap: var(--tgm-sys-gap-10);
+    --movements-page-movement-detail-header-padding-bottom: var(--tgm-sys-padding-25);
+    --movements-page-movement-detail-header-border-bottom-width: 2px;
+    --movements-page-movement-detail-header-border-bottom-color: #F3DE8A;
+    --movements-page-movement-detail-header-color: #272838;
+
+    // Variables para .movements-page__movements-detail-body
+    --movements-page-movements-detail-body-flex: 3;
+    --movements-page-movements-detail-body-width: 80%;
+    --movements-page-movements-detail-body-padding-top: var(--tgm-sys-padding-25);
+
+    // Variables para .movements-page__movements-detail-item
+    --movements-page-movements-detail-item-width: 100%;
+    --movements-page-movements-detail-item-padding: var(--tgm-sys-padding-15);
+    --movements-page-movements-detail-item-h2-font-size: var(--tgm-sys-font-size-16);
+    --movements-page-movements-detail-item-h2-font-weight: var(--tgm-sys-font-weight-600);
+    --movements-page-movements-detail-item-p-font-size: var(--tgm-sys-font-size-14);
+    --movements-page-movements-detail-item-p-color: #272838;
+    --movements-page-movements-detail-item-border-bottom-width: 1px;
+    --movements-page-movements-detail-item-border-bottom-color: #d7d7d7;
+
+    --movements-page-deposit-color: #4CAF50;
+    --movements-page-withdrawal-color: #F44336;
+
+    height: 100vh;
+    width: 100%;
+}
 
 .movements-page {
-    height: $movements-page-full-height;
-    width: $movements-page-full-width;
+    height: var(--movements-page-height);
+    width: var(--movements-page-width);
     display: flex;
-    font-family: $movements-page-font-family;
-    background-color: $movements-page-background-color;
+    font-family: var(--movements-page-font-family);
+    background-color: var(--movements-page-background-color);
 
     >a {
         height: fit-content;
         width: fit-content;
-        font-size: $movements-page-font-size-icon-large;
-        margin: $movements-page-margin-small;
+        font-size: var(--movements-page-link-font-size);
+        margin: var(--movements-page-link-margin);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--tgm-sys-color-primary);
+        }
     }
 
     &__left-side {
-        height: $movements-page-full-height;
-        min-width: $movements-page-left-min-width;
-        flex: $movements-page-flex-left;
+        height: var(--movements-page-left-side-height);
+        min-width: var(--movements-page-left-side-min-width);
+        flex: var(--movements-page-left-side-flex);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: $movements-page-padding-main;
+        padding: var(--movements-page-left-side-padding);
         box-sizing: border-box;
     }
 
     &__account-container {
-        width: $movements-page-full-width;
+        width: var(--movements-page-account-container-width);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: $movements-page-primary-color;
-        border-radius: $movements-page-border-radius-small;
-        gap: $movements-page-gap-small;
-        padding: $movements-page-padding-medium;
+        background-color: var(--movements-page-account-container-background-color);
+        border-radius: var(--movements-page-account-container-border-radius);
+        gap: var(--movements-page-account-container-gap);
+        padding: var(--movements-page-account-container-padding);
 
         >h3 {
-            font-size: 18px;
-            color: #333333;
+            font-size: var(--movements-page-account-container-h3-font-size);
+            color: var(--movements-page-account-container-h3-color);
         }
 
         >h1 {
-            font-size: 28px;
-            color: #000000;
+            font-size: var(--movements-page-account-container-h1-font-size);
+            color: var(--movements-page-account-container-h1-color);
         }
 
         >p {
-            margin-top: 5px;
-            font-size: 14px;
-            color: #666666;
+            margin-top: var(--movements-page-account-container-p-margin-top);
+            font-size: var(--movements-page-account-container-p-font-size);
+            color: var(--movements-page-account-container-p-color);
         }
     }
 
-
-
     &__movements-list {
-        height: 100%;
-        width: 100%;
+        height: var(--movements-page-movements-list-height);
+        width: var(--movements-page-movements-list-width);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        border-top: 2px solid #F3DE8A;
-        margin-top: 35px;
-        padding-top: 15px;
+        border-top: var(--movements-page-movements-list-border-top-width) solid var(--movements-page-movements-list-border-top-color);
+        margin-top: var(--movements-page-movements-list-margin-top);
+        margin-left: var(--movements-page-list-margin-left);
+        padding-top: var(--movements-page-movements-list-padding-top);
+        padding-right: var(--movements-page-movements-list-padding-right);
         overflow-y: scroll;
     }
 
     &__movement-item {
         cursor: pointer;
-        width: 100%;
+        width: var(--movements-page-movement-item-width);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 15px;
-        padding: 10px 15px;
-        transition: all 0.3s ease;
+        gap: var(--movements-page-movement-item-gap);
+        padding: var(--movements-page-movement-item-padding-vertical) var(--movements-page-movement-item-padding-horizontal);
+        transition: var(--movements-page-movement-item-transition);
 
         &:hover {
-            background-color: #F3DE8A;
+            background-color: var(--movements-page-movement-item-hover-background);
         }
     }
 
@@ -149,48 +201,45 @@ $movements-page-transition: var(--tgm-sys-transition-smooth);
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 40px;
-        width: 40px;
-        background-color: #272838;
-        border-radius: 50%;
+        height: var(--movements-page-movement-type-height);
+        width: var(--movements-page-movement-type-width);
+        background-color: var(--movements-page-movement-type-background-color);
+        border-radius: var(--movements-page-movement-type-border-radius);
 
         >i {
-            font-size: 25px;
+            font-size: var(--movements-page-movement-type-icon-font-size);
         }
 
         &--header {
-            height: 65px;
-            width: 65px;
-            font-size: 40px;
+            height: var(--movements-page-movement-type-header-height);
+            width: var(--movements-page-movement-type-header-width);
+            font-size: var(--movements-page-movement-type-header-font-size);
 
             >i {
-                font-size: 45px;
+                font-size: var(--movements-page-movement-type-header-icon-font-size);
             }
         }
     }
 
     &__movement-central-info {
-        flex: 1;
+        flex: var(--movements-page-movement-central-info-flex);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
     }
 
     &__movement-amount {
-
         &--header {
-            font-size: 30px;
-            font-weight: 600;
-            margin: 10px 0;
+            font-size: var(--movements-page-movement-amount-header-font-size);
+            font-weight: var(--movements-page-movement-amount-header-font-weight);
+            margin: var(--movements-page-movement-amount-header-margin);
         }
     }
 
     &__movement-date {
-
         &--header {
-            font-size: 18px;
-            font-weight: 500;
+            font-size: var(--movements-page-movement-date-header-font-size);
+            font-weight: var(--movements-page-movement-date-header-font-weight);
         }
     }
 
@@ -199,57 +248,64 @@ $movements-page-transition: var(--tgm-sys-transition-smooth);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        flex: 2;
-        min-width: 400px;
-        border-left: 1px solid #E0E0E0;
-        padding: 20px;
+        flex: var(--movements-page-right-side-flex);
+        min-width: var(--movements-page-right-side-min-width);
+        border-left: var(--movements-page-right-side-border-left-width) solid var(--movements-page-right-side-border-left-color);
+        padding: var(--movements-page-right-side-padding-vertical) 0;
         box-sizing: border-box;
-        padding: 35px 0;
     }
 
     &__movement-detail-header {
-        flex: 1;
-        width: 80%;
+        flex: var(--movements-page-movement-detail-header-flex);
+        width: var(--movements-page-movement-detail-header-width);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 10px;
-        padding-bottom: 25px;
-        border-bottom: 2px solid #F3DE8A;
-        color: #272838;
+        gap: var(--movements-page-movement-detail-header-gap);
+        padding-bottom: var(--movements-page-movement-detail-header-padding-bottom);
+        border-bottom: var(--movements-page-movement-detail-header-border-bottom-width) solid var(--movements-page-movement-detail-header-border-bottom-color);
+        color: var(--movements-page-movement-detail-header-color);
     }
 
     &__movements-detail-body {
-        flex: 3;
-        width: 80%;
+        flex: var(--movements-page-movements-detail-body-flex);
+        width: var(--movements-page-movements-detail-body-width);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 25px;
+        padding-top: var(--movements-page-movements-detail-body-padding-top);
     }
 
     &__movements-detail-item {
-        width: 100%;
+        width: var(--movements-page-movements-detail-item-width);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        padding: 15px;
+        padding: var(--movements-page-movements-detail-item-padding);
 
         h2 {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: var(--movements-page-movements-detail-item-h2-font-size);
+            font-weight: var(--movements-page-movements-detail-item-h2-font-weight);
         }
 
         p {
-            font-size: 14px;
-            color: #272838;
+            font-size: var(--movements-page-movements-detail-item-p-font-size);
+            color: var(--movements-page-movements-detail-item-p-color);
         }
 
         &:not(:last-child) {
-            border-bottom: 1px solid #d7d7d7;
+            border-bottom: var(--movements-page-movements-detail-item-border-bottom-width) solid var(--movements-page-movements-detail-item-border-bottom-color);
         }
     }
+}
+
+.deposit {
+    color: var(--movements-page-deposit-color);
+}
+
+.withdrawal {
+    color: var(--movements-page-withdrawal-color);
 }

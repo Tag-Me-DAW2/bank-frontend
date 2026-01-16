@@ -4,7 +4,7 @@
     </a>
     <div class="movements-page__left-side">
         <div class="movements-page__account-container">
-            <h3>{{ user }}</h3>
+            <h3>{{ user.username.toUpperCase() }}</h3>
             <h1>{{ account.balance | currency }}</h1>
             <p>{{ account.iban }}</p>
         </div>
@@ -12,8 +12,11 @@
             @for (movement of movements; track $index) {
             <div class="movements-page__movement-item" (click)="onSelectedMovement(movement.id)">
                 <span class="movements-page__movement-type">
-                    <i class='bx  bx-trending-down' style='color:#F9F8F8'
-                        [class.bx-trending-up]="movement.type == 'DEPOSIT'"></i>
+                    <i class="bx" [ngClass]="{
+                                        'bx-trending-up deposit': movement.type == 'DEPOSIT',
+                                        'bx-trending-down withdrawal': movement.type == 'WITHDRAWAL'
+                                    }">
+                    </i>
                 </span>
                 <div class="movements-page__movement-central-info">
                     <span class="movements-page__movement-description">{{ movement.origin
@@ -24,9 +27,9 @@
                 </div>
                 <span class="movements-page__movement-amount">
                     @if (movement.type == 'WITHDRAWAL') {
-                        - 
+                    -
                     } @else {
-                        +
+                    +
                     }
                     {{ movement.amount | currency}}</span>
             </div>

@@ -5,11 +5,12 @@ import { EmblaSlider } from '../../ui/embla-slider/embla-slider';
 import { StatsPage } from "../stats-page/stats-page";
 import { BankAccountService } from '../../../services/bank-account-service/bank-account-service';
 import { ActivatedRoute, RouterLink } from "@angular/router";
+import { HeaderComponent } from "../../ui/header-component/header-component";
 
 
 @Component({
   selector: 'app-profile-page',
-  imports: [CurrencyPipe, DatePipe, EmblaSlider, StatsPage, RouterLink, NgClass],
+  imports: [CurrencyPipe, DatePipe, EmblaSlider, StatsPage, RouterLink, NgClass, HeaderComponent],
   templateUrl: './profile-page.html',
   styleUrl: './profile-page.scss',
 })
