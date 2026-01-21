@@ -7,10 +7,12 @@ import { BankMovementSummaryResponse } from '../../models/response/bank-movement
   providedIn: 'root',
 })
 export class CardService {
-   httpClient = inject(HttpClient);
-  url: string = 'http://localhost:8080/credit-cards';
+  httpClient = inject(HttpClient);
+  url: string = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/credit-cards';
 
   getMovementsByCardId(cardId: number) {
-    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(this.url + `/movements/${cardId}`);
+    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(
+      this.url + `/movements/${cardId}`,
+    );
   }
 }

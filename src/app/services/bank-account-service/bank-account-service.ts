@@ -8,17 +8,15 @@ import { BankAccountResponse } from '../../models/response/bankAccountResponse';
 })
 export class BankAccountService {
   httpClient: HttpClient = inject(HttpClient);
-  url: string = 'http://localhost:8080/bank-accounts/client';
+  url: string = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/bank-accounts/client';
 
   getAccountsByUserId(userId: number): Observable<BankAccountResponse[]> {
-    return this.httpClient.get<BankAccountResponse[]>(
-      `${this.url}/${userId}`
-    );
+    return this.httpClient.get<BankAccountResponse[]>(`${this.url}/${userId}`);
   }
 
   getAccountById(accountId: number): Observable<BankAccountResponse> {
     return this.httpClient.get<BankAccountResponse>(
-      `http://localhost:8080/bank-accounts/${accountId}`
+      `http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/bank-accounts/${accountId}`,
     );
   }
 }

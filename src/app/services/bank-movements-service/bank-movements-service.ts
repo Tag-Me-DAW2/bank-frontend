@@ -10,22 +10,29 @@ import { BankMovementDetail } from '../../models/response/bank-movement/bankMove
 })
 export class BankMovementsService {
   httpClient = inject(HttpClient);
-  url: string = 'http://localhost:8080/movements';
+  url: string = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/movements';
 
-  getMovementsByAccountId(accountId: number): Observable<PageInterface<BankMovementSummaryResponse>> {
-    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(this.url + `/account/${accountId}` + `?page=1&size=1000`);
+  getMovementsByAccountId(
+    accountId: number,
+  ): Observable<PageInterface<BankMovementSummaryResponse>> {
+    return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(
+      this.url + `/account/${accountId}` + `?page=1&size=1000`,
+    );
   }
 
   getMovementById(movementId: number): Observable<BankMovementDetail> {
     return this.httpClient.get<BankMovementDetail>(this.url + `/${movementId}`);
   }
 
-  getMonthlySummaryByAccountIdAndDate(accountId: number, date: Date): Observable<PageInterface<BankMovementSummaryResponse>> {
+  getMonthlySummaryByAccountIdAndDate(
+    accountId: number,
+    date: Date,
+  ): Observable<PageInterface<BankMovementSummaryResponse>> {
     return this.httpClient.get<PageInterface<BankMovementSummaryResponse>>(this.url + '/monthly', {
       params: {
         accountId: accountId.toString(),
-        date: date.toISOString().split('T')[0]
-      }
+        date: date.toISOString().split('T')[0],
+      },
     });
   }
 }

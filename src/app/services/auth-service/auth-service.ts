@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   httpClient = inject(HttpClient);
-  url = 'http://localhost:8080/auth';
+  url = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/auth';
 
   login(username: string, password: string) {
     const loginData = { username, password };
@@ -15,7 +15,7 @@ export class AuthService {
       tap((response: any) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('user', JSON.stringify(response.clientResponse));
-      })
+      }),
     );
   }
 
