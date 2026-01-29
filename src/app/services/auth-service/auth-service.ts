@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   httpClient = inject(HttpClient);
-  url = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/auth';
+  url = environment.apiUrl + '/auth';
 
   login(username: string, password: string) {
     const loginData = { username, password };

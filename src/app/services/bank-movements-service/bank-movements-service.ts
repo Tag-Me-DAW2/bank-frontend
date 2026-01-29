@@ -4,13 +4,14 @@ import { BankMovementSummaryResponse } from '../../models/response/bank-movement
 import { Observable } from 'rxjs';
 import { PageInterface } from '../../models/pageInterface';
 import { BankMovementDetail } from '../../models/response/bank-movement/bankMovementDetail';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BankMovementsService {
   httpClient = inject(HttpClient);
-  url: string = 'http://bank-back-tagme.preproducciondaw.cip.fpmislata.com/movements';
+  url: string = environment.apiUrl + '/movements';
 
   getMovementsByAccountId(
     accountId: number,
