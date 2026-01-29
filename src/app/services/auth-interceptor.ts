@@ -23,7 +23,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       catchError((error) => {
-        if (error.status === 401 || error.status === 403) {
+        const isLoginRequest = req.url.includes('/login') || req.url.includes('/auth/login');
+
+        if ((error.status === 401 || error.status === 403) && !isLoginRequest) {
           this.alertService.close();
           this.alertService.setSessionExpiredAlertActive(true);
 
@@ -35,13 +37,13 @@ export class AuthInterceptor implements HttpInterceptor {
               allowEscapeKey: false,
             })
             .then(() => {
-              localStorage.removeItem('authToken');
+              localStorage.removeItem('token');
               this.router.navigate(['/']);
               this.alertService.setSessionExpiredAlertActive(false);
             });
         }
         return throwError(() => error);
-      })
+      }),
     );
   }
 }
