@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 })
 export class BankAccountService {
   httpClient: HttpClient = inject(HttpClient);
-  url: string = environment.apiUrl + '/client';
+  url: string = environment.apiUrl + '/bank-accounts';
 
   getAccountsByUserId(userId: number): Observable<BankAccountResponse[]> {
     return this.httpClient.get<BankAccountResponse[]>(`${this.url}/${userId}`);
@@ -17,7 +17,7 @@ export class BankAccountService {
 
   getAccountById(accountId: number): Observable<BankAccountResponse> {
     return this.httpClient.get<BankAccountResponse>(
-      `${environment.apiUrl}/bank-accounts/${accountId}`,
+      `${this.url}/client/${accountId}`,
     );
   }
 }
