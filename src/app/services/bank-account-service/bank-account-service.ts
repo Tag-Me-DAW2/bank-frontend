@@ -12,12 +12,10 @@ export class BankAccountService {
   url: string = environment.apiUrl + '/bank-accounts';
 
   getAccountsByUserId(userId: number): Observable<BankAccountResponse[]> {
-    return this.httpClient.get<BankAccountResponse[]>(`${this.url}/${userId}`);
+    return this.httpClient.get<BankAccountResponse[]>(`${this.url}/client/${userId}`);
   }
 
   getAccountById(accountId: number): Observable<BankAccountResponse> {
-    return this.httpClient.get<BankAccountResponse>(
-      `${this.url}/client/${accountId}`,
-    );
+    return this.httpClient.get<BankAccountResponse>(`${this.url}/${accountId}`);
   }
 }

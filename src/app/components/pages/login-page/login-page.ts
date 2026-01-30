@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth-service/auth-service';
 import { Router } from '@angular/router';
+import { AlertService } from '../../../services/alert-service';
 
 @Component({
   selector: 'app-login-page',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
   authService = inject(AuthService);
+  alertService = inject(AlertService);
   router = inject(Router);
 
   @Input() username: string = '';
@@ -23,8 +25,11 @@ export class LoginPage {
         this.router.navigate(['bank/profile', user.id]);
       },
       error: (error) => {
-        console.error('Login failed', error);
-      }
+        this.alertService.error({
+          title: 'Login Failed',
+          text: error.error.message || 'An unexpected error occurred during login.',
+        });
+      },
     });
   }
 }
