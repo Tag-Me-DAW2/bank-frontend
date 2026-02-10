@@ -1,20 +1,29 @@
 <header-component></header-component>
 <div class="profile-page">
     <div class="profile-page__general-wrapper">
-        <h1 class="profile-page__header-title">MY ACCOUNTS</h1>
+        <h1 class="profile-page__header-title">MIS CUENTAS</h1>
         <div class="profile-page__account-wrapper">
             <div class="profile-page__account-container">
                 <embla-slider direction="horizontal" (selectedItemIndex)="onAccountSelected($event)">
                     @for (account of accounts; track $index) {
                     <a class="profile-page__account-card">
-                        <div class="profile-page__account-number">{{ account.iban }}</div>
-                        <div class="profile-page__account-balance">{{ account.balance | currency }}</div>
+                        <div class="profile-page__account-card-header">
+                            <span class="profile-page__account-label">Cuenta</span>
+                            <span class="profile-page__account-number">{{ account.iban }}</span>
+                        </div>
+                        <div class="profile-page__account-balance-section">
+                            <span class="profile-page__balance-label">Saldo Disponible</span>
+                            <span class="profile-page__account-balance">{{ account.balance | currency }}</span>
+                        </div>
 
                         <div class="profile-page__account-movements">
-                            <span>
-                                Recent Movements
-                                <a routerLink="/bank/movements/{{ account.id }}">See more</a>
-                            </span>
+                            <div class="profile-page__movements-header">
+                                <span class="profile-page__movements-title">Movimientos Recientes</span>
+                                <a class="profile-page__movements-see-more"
+                                    [routerLink]="['/bank/movements/', account.id]">
+                                    Ver todo <i class="bx bx-right-arrow-alt"></i>
+                                </a>
+                            </div>
 
                             <div class="profile-page__accounts-cards-wrapper">
                                 @for (movement of account.movements.slice(0, 4); track $index) {
@@ -22,27 +31,40 @@
                                     [queryParams]="{ movementId: movement.id }">
                                     <span class="profile-page__movement-type">
                                         <i class="bx" [ngClass]="{
-                                        'bx-trending-up deposit': movement.type == 'DEPOSIT',
-                                        'bx-trending-down withdrawal': movement.type == 'WITHDRAWAL'
-                                    }">
-                                        </i>
+                                            'bx-trending-up deposit': movement.type == 'DEPOSIT',
+                                            'bx-trending-down withdrawal': movement.type == 'WITHDRAWAL'
+                                        }"></i>
                                     </span>
                                     <div class="profile-page__movement-central-info">
-                                        <span class="profile-page__movement-description">{{ movement.origin
-                                            }}</span>
-                                        <span class="profile-page__movement-date">{{ movement.date |
-                                            date:'shortDate'
-                                            }}</span>
+                                        <span class="profile-page__movement-description">
+                                            @if (movement.type == 'DEPOSIT') { Depósito } @else { Retiro }
+                                        </span>
+                                        <div class="profile-page__movement-meta">
+                                            <span class="profile-page__movement-origin">
+                                                @switch (movement.origin) {
+                                                @case ('BANK_ACCOUNT') { <i class="bx bx-building"></i> Cuenta }
+                                                @case ('BANK_CARD') { <i class="bx bx-credit-card"></i> Tarjeta }
+                                                @case ('DOMICILIATION') { <i class="bx bx-file"></i> Domiciliación }
+                                                }
+                                            </span>
+                                            <span class="profile-page__movement-date">
+                                                {{ movement.date | date:'d MMM y' }}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span class="profile-page__movement-amount">
-                                        @if (movement.type == 'DEPOSIT') {
-                                        <span>+</span>
-                                        } @else {
-                                        <span>-</span>
-                                        }
-                                        {{ movement.amount | currency}}
+                                    <span class="profile-page__movement-amount" [ngClass]="{
+                                        'deposit': movement.type == 'DEPOSIT',
+                                        'withdrawal': movement.type == 'WITHDRAWAL'
+                                    }">
+                                        {{ movement.type == 'DEPOSIT' ? '+' : '-' }}{{ movement.amount | currency }}
                                     </span>
                                 </a>
+                                }
+                                @if (account.movements.length === 0) {
+                                <div class="profile-page__no-movements">
+                                    <i class="bx bx-info-circle"></i>
+                                    <span>Sin movimientos</span>
+                                </div>
                                 }
                             </div>
                         </div>
@@ -50,18 +72,43 @@
                     }
                 </embla-slider>
             </div>
+            @if (selectedAccount) {
             <div class="profile-page__card-wrapper">
-                <embla-slider direction="vertical">
+                <h2 class="profile-page__card-section-title">
+                    <i class="bx bx-credit-card"></i> Mis Tarjetas
+                </h2>
+                <embla-slider #cardSlider direction="vertical">
                     @for (card of selectedAccount.cards; track $index) {
                     <a class="profile-page__card-container" [routerLink]="['/bank/movements/', selectedAccount.id]"
-                                    [queryParams]="{ cardId: card.id }">
+                        [queryParams]="{ cardId: card.id }">
+                        <div class="profile-page__card-top">
+                            <div class="profile-page__card-chip">
+                                <i class="bx bxs-chip"></i>
+                            </div>
+                            <div class="profile-page__card-contactless">
+                                <i class="bx bx-wifi"></i>
+                            </div>
+                        </div>
                         <div class="profile-page__card-number">{{ card.number }}</div>
+                        <div class="profile-page__card-bottom">
+                            <div class="profile-page__card-holder">{{ card.fullName }}</div>
+                            <span class="profile-page__card-brand">VISA</span>
+                        </div>
                     </a>
+                    }
+                    @if (selectedAccount.cards.length === 0) {
+                    <div class="profile-page__no-cards">
+                        <i class="bx bx-credit-card-front"></i>
+                        <span>Sin tarjetas vinculadas</span>
+                    </div>
                     }
                 </embla-slider>
             </div>
+            }
         </div>
+        @if (selectedAccount) {
+        <hr class="profile-page__separator-bar">
+        <stats-page [accountId]="selectedAccount.id"></stats-page>
+        }
     </div>
-    <hr class="profile-page__separator-bar">
-    <stats-page [accountId]="selectedAccount.id"></stats-page>
 </div>

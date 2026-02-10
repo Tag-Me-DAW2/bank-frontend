@@ -1,242 +1,262 @@
 :host {
-  // Login Variables
-  --login-height: var(--tgm-sys-percentage-85);
-  --login-width: var(--tgm-sys-percentage-85);
-  --login-font-family: var(--tgm-sys-font-family-primary);
-  --login-border-radius: var(--tgm-sys-border-radius-xlarge);
-
-  // Login logo container variables
-  --login-logo-container-height: var(--tgm-sys-percentage-100);
-  --login-logo-container-bg-color: var(--tgm-sys-color-primary);
-
-  // Login background image variables
-  --login-background-image-size: var(--tgm-sys-width-300);
-
-  // Login logo variables
-  --login-logo-width: var(--tgm-sys-width-800);
-
-  // Login form container variables
-  --login-form-container-height: var(--tgm-sys-percentage-100);
-  --login-form-container-padding: var(--tgm-sys-padding-30) var(--tgm-sys-padding-50);
-  --login-form-container-gap: var(--tgm-sys-gap-40);
-  --login-form-container-background-color: var(--tgm-sys-color-background);
-
-  // Login from title variables
-  --login-form-title-font-size: var(--tgm-sys-font-size-48);
-  --login-form-title-font-weight: var(--tgm-sys-font-weight-800);
-  --login-form-title-color: var(--tgm-sys-color-secondary);
-
-  // Login inputs container variables
-  --login-inputs-container-gap: var(--tgm-sys-gap-20);
-
-  // Login form input wrapper variables
-  --login-form-input-wrapper-width: var(--tgm-sys-width-300);
-  --login-form-input-wrapper-border-radius: var(--tgm-sys-border-radius-xlarge);
-  --login-form-input-wrapper-border-color: var(--tgm-sys-color-secondary);
-  --login-form-input-wrapper-font-size: var(--tgm-sys-font-size-20);
-  --login-form-input-wrapper-padding: var(--tgm-sys-padding-14) var(--tgm-sys-padding-40);
-  --login-form-input-wrapper-gap: var(--tgm-sys-gap-20);
-
-  // Login form user icon variables
-  --login-form-user-icon-height: var(--tgm-sys-height-30);
-  --login-form-user-icon-width: var(--tgm-sys-width-30);
-  --login-form-user-icon-font-size: var(--tgm-sys-font-size-25);
-
-  // Login form input variables
-  --login-form-input-width: var(--tgm-sys-percentage-75);
-
-  // Login form button variables
-  --login-form-button-margin-top: var(--tgm-sys-margin-40);
-  --login-form-button-width: var(--tgm-sys-width-300);
-  --login-form-button-font-size: var(--tgm-sys-font-size-20);
-  --login-form-button-font-weight: var(--tgm-sys-font-weight-500);
-  --login-form-button-border-radius: var(--tgm-sys-border-radius-xlarge);
-  --login-form-button-padding: var(--tgm-sys-padding-14) var(--tgm-sys-padding-40);
-  --login-form-button-hover-color: var(--tgm-sys-color-primary);
-  --login-form-button-hover-background-color: var(--tgm-sys-color-secondary);
+  --lg-bg: #eeedef;
+  --lg-color: #272838;
+  --lg-muted: rgba(39, 40, 56, 0.45);
+  --lg-accent: #f3de8a;
+  --lg-dark: #1a1a2e;
+  --lg-border: rgba(39, 40, 56, 0.12);
+  --lg-radius: 14px;
 
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#272838, #897888);
+  background: linear-gradient(135deg, #1a1a2e 0%, #272838 50%, #3a3a52 100%);
+  font-family: var(--tgm-sys-font-family-primary);
 }
 
 .login {
   display: flex;
-  height: var(--login-height);
-  width: var(--login-width);
-  font-family: var(--login-font-family);
-  border-radius: var(--login-border-radius);
+  width: 88%;
+  max-width: 1000px;
+  height: 85vh;
+  max-height: 680px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
 
-  &__logo-container {
+  // ─── Hero (left) ───
+  &__hero {
     position: relative;
     display: flex;
-    flex: 4;
-    align-content: center;
+    flex: 1.3;
+    align-items: center;
     justify-content: center;
-    height: var(--login-logo-container-height);
-    background-color: var(--login-logo-container-bg-color);
+    background: var(--lg-accent);
+    overflow: hidden;
   }
 
-  &__background-image {
+  &__bg-element {
     position: absolute;
-    width: var(--login-background-image-size);
+    width: 240px;
     height: auto;
+    opacity: 0.25;
+    pointer-events: none;
 
-    &--top-left {
+    &--top {
       top: 0;
       left: -2px;
     }
 
-    &--bottom-right {
+    &--bottom {
       bottom: 0;
       right: 0;
     }
   }
 
-  &__logo {
-    width: var(--login-logo-width);
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
   }
 
-  &__form-container {
-    display: flex;
+  &__brand-icon {
+    font-size: 64px;
+    color: var(--lg-dark);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+
+  &__brand-name {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    color: var(--lg-dark);
+    letter-spacing: -0.5px;
+  }
+
+  // ─── Form Side (right) ───
+  &__form-side {
     flex: 1;
-    justify-content: center;
-    flex-direction: column;
-    height: var(--login-form-container-height);
-    padding: var(--login-form-container-padding);
-    gap: var(--login-form-container-gap);
-    background-color: var(--login-form-container-background-color);
-  }
-
-  &__form-title {
-    font-size: var(--login-form-title-font-size);
-    font-weight: var(--login-form-title-font-weight);
-    color: var(--login-form-title-color);
-  }
-
-  &__inputs-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--login-inputs-container-gap);
-  }
-
-  &__form-input-wrapper {
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    width: var(--login-form-input-wrapper-width);
-    font-size: var(--login-form-input-wrapper-font-size);
-    text-align: center;
-    border-radius: var(--login-form-input-wrapper-border-radius);
-    border: 1px solid var(--login-form-input-wrapper-border-color);
-    padding: var(--login-form-input-wrapper-padding);
-    gap: var(--login-form-input-wrapper-gap);
-  }
-
-  &__form-user-icon {
-    height: var(--login-form-user-icon-height);
-    width: var(--login-form-user-icon-width);
     display: flex;
     align-items: center;
-    font-size: var(--login-form-user-icon-font-size);
+    justify-content: center;
+    background: var(--lg-bg);
+    padding: 40px;
+    box-sizing: border-box;
   }
 
-  &__form-input {
+  &__form-wrapper {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+    color: var(--lg-color);
+    margin: 0 0 4px;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: var(--lg-muted);
+    margin: 0 0 32px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--lg-muted);
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    height: 48px;
+    border: 1.5px solid var(--lg-border);
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+
+    &:focus-within {
+      border-color: var(--lg-accent);
+      box-shadow: 0 0 0 3px rgba(243, 222, 138, 0.2);
+    }
+  }
+
+  &__input-icon {
+    font-size: 18px;
+    color: var(--lg-muted);
+    flex-shrink: 0;
+  }
+
+  &__input {
+    flex: 1;
     border: none;
     outline: none;
-    width: var(--login-form-input-width);
+    background: transparent;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--lg-color);
+
+    &::placeholder {
+      color: rgba(39, 40, 56, 0.3);
+    }
   }
 
-  &__form-button {
-    margin-top: var(--login-form-button-margin-top);
-    width: var(--login-form-button-width);
-    font-size: var(--login-form-button-font-size);
-    font-weight: var(--login-form-button-font-weight);
-    text-align: center;
-    background-color: var(--tgm-sys-color-primary);
-    color: var(--tgm-sys-color-on-primary);
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    height: 48px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    background: var(--lg-dark);
+    color: var(--lg-accent);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
     cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: var(--login-form-button-border-radius);
-    padding: var(--login-form-button-padding);
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+
+    i {
+      font-size: 20px;
+      transition: transform 0.25s ease;
+    }
 
     &:hover {
-      color: var(--login-form-button-hover-color);
-      background-color: var(--login-form-button-hover-background-color);
+      background: #0f3460;
+      box-shadow: 0 4px 16px rgba(26, 26, 46, 0.35);
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 }
 
-@media (max-width: 1023px) {
-  // Variables Override
-  :host {
-    --login-logo-container-height: var(--tgm-sys-percentage-30);
-    --login-background-image-size: var(--tgm-sys-width-250);
-    --login-form-container-gap: var(--tgm-sys-gap-50);
-    --login-form-container-padding: var(--tgm-sys-padding-50) var(--tgm-sys-padding-40);
-
-    --login-inputs-container-gap: var(--tgm-sys-gap-50);
-    --login-form-input-wrapper-width: var(--tgm-sys-width-500);
-
-    --login-form-button-width: var(--tgm-sys-width-500);
-    --login-form-button-margin-top: var(--tgm-sys-margin-50);
-  }
-
-  // Meter gap de 100 px almenos y letras sign in mas grandes
+// ─── Responsive ───
+@media (max-width: 900px) {
   .login {
     flex-direction: column;
+    height: 90vh;
+    max-height: none;
+    width: 92%;
+    max-width: 480px;
 
-    &__logo-container {
+    &__hero {
+      flex: 0 0 180px;
+    }
+
+    &__form-side {
       flex: 1;
+      padding: 32px 28px;
     }
 
-    &__form-container {
-      justify-content: flex-start;
-      flex: 4;
-      align-items: center;
+    &__bg-element {
+      width: 160px;
     }
 
-    &__form-input-wrapper {
-      justify-content: normal;
+    &__brand-icon {
+      font-size: 48px;
     }
   }
 }
 
-@media (max-width: 767px) {
-  // Variables Override
+@media (max-width: 480px) {
   :host {
-    --login-logo-container-height: var(--tgm-sys-percentage-10);
-    --login-background-image-size: var(--tgm-sys-percentage-30);
-
-    --login-form-container-width: var(--tgm-sys-percentage-100);
-    --login-form-container-gap: var(--tgm-sys-gap-100);
-    --login-form-width: var(--tgm-sys-percentage-100);
-
-    --login-form-input-wrapper-width: var(--tgm-sys-percentage-100);
-    --login-form-button-width: var(--tgm-sys-percentage-100);
+    background: var(--lg-bg);
   }
 
   .login {
-    &__form-container {
-      width: var(--login-form-container-width);
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+
+    &__hero {
+      flex: 0 0 140px;
     }
 
-    &__form {
-      width: var(--login-form-width);
+    &__form-side {
+      padding: 24px 20px;
     }
-  }
-}
 
-@media (max-width: 479px) {
-  // Variables Override
-  :host {
-    --login-width: var(--tgm-sys-percentage-100);
-    --login-height: var(--tgm-sys-percentage-100);
-    --login-border-radius: 0;
+    &__brand-icon {
+      font-size: 40px;
+    }
+
+    &__brand-name {
+      font-size: 20px;
+    }
   }
 }

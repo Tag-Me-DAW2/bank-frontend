@@ -1,261 +1,521 @@
 :host {
-    
-    // Variables para .profile-page
-    --profile-page-width: var(--tgm-sys-percentage-75);
-    --profile-page-padding: var(--tgm-sys-padding-20);
-    --profile-page-background-color: #E6E5E5;
-    --profile-page-color: #272838;
-    --profile-page-font-family: var(--tgm-sys-font-family-primary);
+  // Colors
+  --pp-bg: #eeedef;
+  --pp-color: #272838;
+  --pp-card-bg: #ffffff;
+  --pp-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --pp-card-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --pp-accent: #f3de8a;
+  --pp-accent-hover: #d4a017;
+  --pp-deposit: #22c55e;
+  --pp-withdrawal: #ef4444;
+  --pp-muted: rgba(39, 40, 56, 0.5);
+  --pp-border: rgba(39, 40, 56, 0.06);
+  --pp-radius: 14px;
+  --pp-radius-sm: 10px;
 
-    // Variables para .profile-page__header-title
-    --profile-page-header-title-width: fit-content;
-    --profile-page-header-title-font-size: var(--tgm-sys-font-size-28);
-    --profile-page-header-title-font-weight: var(--tgm-sys-font-weight-600);
-
-    // Variables para .profile-page__account-wrapper
-    --profile-page-account-wrapper-height: var(--tgm-sys-height-400);
-    --profile-page-account-wrapper-width: var(--tgm-sys-percentage-100);
-    --profile-page-account-wrapper-gap: var(--tgm-sys-gap-15);
-    --profile-page-account-wrapper-margin-top: var(--tgm-sys-margin-20);
-
-    // Variables para .profile-page__account-container
-    --profile-page-account-container-height: var(--tgm-sys-percentage-100);
-    --profile-page-account-container-width: var(--tgm-sys-width-400);
-    --profile-page-account-container-gap: var(--tgm-sys-gap-10);
-
-    // Variables para .profile-page__account-card
-    --profile-page-account-card-height: var(--tgm-sys-percentage-100);
-    --profile-page-account-card-flex: 0 0 93%;
-    --profile-page-account-card-background-color: #F9F8F8;
-    --profile-page-account-card-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    --profile-page-account-card-border-radius: var(--tgm-sys-border-radius-medium);
-
-    // Variables para .profile-page__account-number
-    --profile-page-account-number-margin-bottom: var(--tgm-sys-margin-5);
-    --profile-page-account-number-font-size: 15px;
-    --profile-page-account-number-opacity: 0.8;
-    --profile-page-account-number-margin: var(--tgm-sys-margin-15) var(--tgm-sys-margin-15) var(--tgm-sys-margin-10) var(--tgm-sys-margin-15);
-
-    // Variables para .profile-page__account-balance
-    --profile-page-account-balance-font-size: var(--tgm-sys-font-size-25);
-    --profile-page-account-balance-font-weight: bold;
-    --profile-page-account-balance-margin: var(--tgm-sys-margin-10) var(--tgm-sys-margin-15);
-
-    // Variables para .profile-page__account-movements
-    --profile-page-account-movements-margin-top: var(--tgm-sys-margin-5);
-    --profile-page-account-movements-width: var(--tgm-sys-percentage-100);
-    --profile-page-account-movements-span-margin: 0 var(--tgm-sys-margin-15);
-    --profile-page-account-movements-opacity: 0.8;
-    --profile-page-account-movements-link-transition: var(--tgm-sys-transition-smooth);
-    --profile-page-account-movements-link-hover-color: #F3DE8A;
-
-    // Variables para .profile-page__accounts-cards-wrapper
-    --profile-page-accounts-cards-wrapper-margin-top: var(--tgm-sys-margin-10);
-
-    // Variables para .profile-page__movement-item
-    --profile-page-movement-item-width: var(--tgm-sys-percentage-100);
-    --profile-page-movement-item-gap: var(--tgm-sys-gap-15);
-    --profile-page-movement-item-padding: var(--tgm-sys-padding-10) var(--tgm-sys-padding-15);
-    --profile-page-movement-item-transition: var(--tgm-sys-transition-smooth);
-    --profile-page-movement-item-hover-background: #F3DE8A;
-
-    // Variables para .profile-page__movement-type
-    --profile-page-movement-type-height: var(--tgm-sys-width-40);
-    --profile-page-movement-type-width: var(--tgm-sys-width-40);
-    --profile-page-movement-type-background-color: #272838;
-    --profile-page-movement-type-border-radius: var(--tgm-sys-border-radius-circle);
-    --profile-page-movement-type-icon-font-size: var(--tgm-sys-font-size-25);
-
-    // Variables para .profile-page__movement-central-info
-    --profile-page-movement-central-info-flex: 1;
-
-    // Variables para .profile-page__card-wrapper
-    --profile-page-card-wrapper-height: var(--tgm-sys-percentage-100);
-    --profile-page-card-wrapper-width: var(--tgm-sys-width-350);
-
-    // Variables para .profile-page__card-container
-    --profile-page-card-container-flex: 0 0 45%;
-    --profile-page-card-container-height: 45%;
-    --profile-page-card-container-width: var(--tgm-sys-percentage-100);
-    --profile-page-card-container-border-radius: var(--tgm-sys-border-radius-medium);
-    --profile-page-card-container-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-
-    // Variables para .profile-page__card-number
-    --profile-page-card-number-margin: var(--tgm-sys-margin-6);
-    --profile-page-card-number-font-size: var(--tgm-sys-font-size-18);
-    --profile-page-card-number-color: #F9F8F8;
-    --profile-page-card-number-letter-spacing: 2px;
-
-    // Variables para colores de depósitos y retiros
-    --profile-page-deposit-color: #28a745;
-    --profile-page-withdrawal-color: #dc3545;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  background-color: var(--pp-bg);
 }
 
 .profile-page {
-    width: var(--profile-page-width);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 clamp(16px, 4vw, 40px) 40px;
+  color: var(--pp-color);
+  font-family: var(--tgm-sys-font-family-primary);
+  box-sizing: border-box;
+
+  // ─── Title ───
+  &__header-title {
+    width: 100%;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    margin: 28px 0 20px;
+    letter-spacing: 0.5px;
+  }
+
+  // ─── Account Wrapper (accounts + cards side by side) ───
+  &__account-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    min-height: 400px;
+  }
+
+  // ─── Account Slider Container ───
+  &__account-container {
+    flex: 1;
+    min-width: 0;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  // ─── Account Card ───
+  &__account-card {
+    cursor: default;
+    height: 100%;
+    flex: 0 0 95%;
+    background: var(--pp-card-bg);
+    box-shadow: var(--pp-card-shadow);
+    border-radius: var(--pp-radius);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: var(--pp-card-hover-shadow);
+    }
+  }
+
+  // ─── Card Header ───
+  &__account-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 6px;
+  }
+
+  &__account-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--pp-muted);
+  }
+
+  &__account-number {
+    font-size: 13px;
+    color: var(--pp-muted);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  // ─── Balance ───
+  &__account-balance-section {
+    padding: 4px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__balance-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--pp-muted);
+    font-weight: 500;
+  }
+
+  &__account-balance {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--pp-color);
+  }
+
+  // ─── Movements Section ───
+  &__account-movements {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--pp-border);
+  }
+
+  &__movements-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+  }
+
+  &__movements-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--pp-muted);
+  }
+
+  &__movements-see-more {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pp-muted);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--pp-accent-hover);
+    }
+  }
+
+  &__accounts-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 14px;
+  }
+
+  // ─── Movement Item ───
+  &__movement-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 24px;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+
+    &:hover {
+      background: rgba(243, 222, 138, 0.15);
+    }
+  }
+
+  .deposit {
+    color: var(--pp-deposit);
+  }
+
+  .withdrawal {
+    color: var(--pp-withdrawal);
+  }
+
+  &__movement-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+
+    > i {
+      font-size: 20px;
+    }
+
+    > i.deposit {
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 50%;
+      padding: 7px;
+    }
+
+    > i.withdrawal {
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 50%;
+      padding: 7px;
+    }
+  }
+
+  &__movement-central-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  &__movement-description {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__movement-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__movement-origin {
+    font-size: 11px;
+    color: var(--pp-muted);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  &__movement-date {
+    font-size: 11px;
+    color: var(--pp-muted);
+  }
+
+  &__movement-amount {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &.deposit {
+      color: var(--pp-deposit);
+    }
+
+    &.withdrawal {
+      color: var(--pp-withdrawal);
+    }
+  }
+
+  &__no-movements {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--profile-page-padding);
-    background-color: var(--profile-page-background-color);
-    color: var(--profile-page-color);
-    font-family: var(--profile-page-font-family);
+    justify-content: center;
+    padding: 32px;
+    color: var(--pp-muted);
+    gap: 6px;
 
-    &__account-wrapper {
-        height: var(--profile-page-account-wrapper-height);
-        width: var(--profile-page-account-wrapper-width);
-        display: flex;
-        justify-content: center;
-        gap: var(--profile-page-account-wrapper-gap);
-        margin-top: var(--profile-page-account-wrapper-margin-top);
+    i {
+      font-size: 32px;
     }
 
-    &__header-title {
-        width: var(--profile-page-header-title-width);
-        font-size: var(--profile-page-header-title-font-size);
-        font-weight: var(--profile-page-header-title-font-weight);
-        margin: 30px 0;
+    span {
+      font-size: 13px;
+    }
+  }
+
+  // ─── Card Section ───
+  &__card-wrapper {
+    width: 300px;
+    min-width: 300px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__card-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pp-muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    i {
+      font-size: 16px;
+    }
+  }
+
+  // ─── Credit Card (Pure CSS) ───
+  &__card-container {
+    cursor: pointer;
+    flex: 0 0 46%;
+    width: 100%;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 45%, #0f3460 100%);
+    box-shadow: 0 8px 24px rgba(15, 52, 96, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 22px;
+    box-sizing: border-box;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -70px;
+      left: -40px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 14px 36px rgba(15, 52, 96, 0.35);
+    }
+  }
+
+  &__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__card-chip {
+    i {
+      font-size: 34px;
+      color: #e0c87a;
+    }
+  }
+
+  &__card-contactless {
+    i {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.45);
+      transform: rotate(90deg);
+    }
+  }
+
+  &__card-number {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 4px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 1;
+  }
+
+  &__card-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__card-holder {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  &__card-brand {
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+  }
+
+  &__no-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--pp-muted);
+    gap: 8px;
+
+    i {
+      font-size: 40px;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+
+  // ─── Separator ───
+  &__separator-bar {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background: var(--pp-border);
+    margin: 48px 0 32px;
+  }
+}
+
+// ─── Responsive ───
+@media (max-width: 900px) {
+  .profile-page {
+    &__account-wrapper {
+      flex-direction: column;
+      min-height: auto;
     }
 
     &__account-container {
-        box-sizing: border-box;
-        height: var(--profile-page-account-container-height);
-        width: var(--profile-page-account-container-width);
-        display: flex;
-        align-items: center;
-        gap: var(--profile-page-account-container-gap);
-        overflow: hidden;
-    }
-
-    &__account-card {
-        cursor: pointer;
-        height: var(--profile-page-account-card-height);
-        flex: var(--profile-page-account-card-flex);
-        background-color: var(--profile-page-account-card-background-color);
-        box-shadow: var(--profile-page-account-card-box-shadow);
-        border-radius: var(--profile-page-account-card-border-radius);
-    }
-
-    &__account-number {
-        margin-bottom: var(--profile-page-account-number-margin-bottom);
-        font-size: var(--profile-page-account-number-font-size);
-        opacity: var(--profile-page-account-number-opacity);
-        margin: var(--profile-page-account-number-margin);
-    }
-
-    &__account-balance {
-        font-size: var(--profile-page-account-balance-font-size);
-        font-weight: var(--profile-page-account-balance-font-weight);
-        margin: var(--profile-page-account-balance-margin);
-    }
-
-    &__account-movements {
-        margin-top: var(--profile-page-account-movements-margin-top);
-        width: var(--profile-page-account-movements-width);
-
-        >span {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            opacity: var(--profile-page-account-movements-opacity);
-            margin: var(--profile-page-account-movements-span-margin);
-
-            a {
-                transition: var(--profile-page-account-movements-link-transition);
-            }
-
-            a:hover {
-                color: var(--profile-page-account-movements-link-hover-color);
-            }
-        }
-    }
-
-    &__accounts-cards-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: var(--profile-page-accounts-cards-wrapper-margin-top);
-    }
-
-    &__movement-item {
-        width: var(--profile-page-movement-item-width);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--profile-page-movement-item-gap);
-        padding: var(--profile-page-movement-item-padding);
-        transition: var(--profile-page-movement-item-transition);
-
-        &:hover {
-            background-color: var(--profile-page-movement-item-hover-background);
-        }
-    }
-
-    .deposit {
-        color: var(--profile-page-deposit-color);
-    }
-
-    .withdrawal {
-        color: var(--profile-page-withdrawal-color);
-    }
-
-    &__movement-type {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: var(--profile-page-movement-type-height);
-        width: var(--profile-page-movement-type-width);
-        background-color: var(--profile-page-movement-type-background-color);
-        border-radius: var(--profile-page-movement-type-border-radius);
-
-        >i {
-            font-size: var(--profile-page-movement-type-icon-font-size);
-        }
-    }
-
-    &__movement-central-info {
-        flex: var(--profile-page-movement-central-info-flex);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      width: 100%;
+      height: 380px;
     }
 
     &__card-wrapper {
-        height: var(--profile-page-card-wrapper-height);
-        width: var(--profile-page-card-wrapper-width);
-        overflow-y: auto;
-        overflow-x: hidden;
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      flex-direction: row;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 16px;
+      padding-bottom: 8px;
     }
 
     &__card-container {
-        cursor: pointer;
-        flex: var(--profile-page-card-container-flex);
-        height: var(--profile-page-card-container-height);
-        width: var(--profile-page-card-container-width);
-        border-radius: var(--profile-page-card-container-border-radius);
-        background-image: url(/assets/card-image.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: var(--profile-page-card-container-box-shadow);
+      flex: 0 0 260px;
+      min-height: 160px;
     }
 
-    &__card-number {
-        margin: var(--profile-page-card-number-margin);
-        font-size: var(--profile-page-card-number-font-size);
-        color: var(--profile-page-card-number-color);
-        letter-spacing: var(--profile-page-card-number-letter-spacing);
+    &__card-section-title {
+      margin-top: 8px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .profile-page {
+    &__account-container {
+      height: 360px;
     }
 
-    &__separator-bar {
-        width: var(--tgm-sys-percentage-85);
-        border: none;
-        height: 4px;
-        background-color: #F9F8F8;
-        margin: var(--tgm-sys-margin-60) 0;
+    &__account-card {
+      flex: 0 0 100%;
     }
+
+    &__movement-item {
+      padding: 10px 16px;
+      gap: 10px;
+    }
+
+    &__account-card-header,
+    &__account-balance-section,
+    &__movements-header {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
 }

@@ -9,7 +9,7 @@ import EmblaCarousel from 'embla-carousel';
 })
 export class EmblaSlider {
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
-  
+
   @Output() selectedItemIndex = new EventEmitter<number>();
 
   @ViewChild('emblaContainer', { static: true }) emblaRef!: ElementRef<HTMLDivElement>;
@@ -28,15 +28,19 @@ export class EmblaSlider {
     });
   }
 
+  scrollTo(index: number) {
+    if (this.embla) {
+      this.embla.scrollTo(index);
+    }
+  }
+
   get containerClasses(): string {
-    return this.direction === 'horizontal' 
-      ? 'embla__container embla__container--horizontal' 
+    return this.direction === 'horizontal'
+      ? 'embla__container embla__container--horizontal'
       : 'embla__container embla__container--vertical';
   }
 
   get emblaClasses(): string {
-    return this.direction === 'horizontal' 
-      ? 'embla embla--horizontal' 
-      : 'embla embla--vertical';
+    return this.direction === 'horizontal' ? 'embla embla--horizontal' : 'embla embla--vertical';
   }
 }
