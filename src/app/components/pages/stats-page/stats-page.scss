@@ -1,378 +1,383 @@
 :host {
-    // Variables para :host
-    --stats-page-host-width: var(--tgm-sys-percentage-100);
-    --stats-page-host-padding: 0 0;
-    --stats-page-host-font-family: var(--tgm-sys-font-family-primary);
+  --sp-bg: #eeedef;
+  --sp-color: #272838;
+  --sp-card-bg: #ffffff;
+  --sp-muted: rgba(39, 40, 56, 0.5);
+  --sp-border: rgba(39, 40, 56, 0.08);
+  --sp-accent: #f3de8a;
+  --sp-dark: #1a1a2e;
+  --sp-deposit: #22c55e;
+  --sp-withdrawal: #ef4444;
+  --sp-radius: 14px;
 
-    // Variables para .stats-page
-    --stats-page-width: var(--tgm-sys-percentage-100);
-    --stats-page-gap: var(--tgm-sys-gap-50);
-
-    // Variables para .stats-page__content
-    --stats-page-content-height: var(--tgm-sys-height-400);
-    --stats-page-content-width: var(--tgm-sys-width-600);
-    --stats-page-content-gap: var(--tgm-sys-gap-50);
-
-    // Variables para .stats-page__movements-summary-amount
-    --stats-page-movements-summary-amount-height: var(--tgm-sys-percentage-100);
-    --stats-page-movements-summary-amount-flex: 3;
-    --stats-page-movements-summary-amount-gap: var(--tgm-sys-gap-35);
-
-    // Variables para .stats-page__amount-item
-    --stats-page-amount-item-width: var(--tgm-sys-percentage-100);
-    --stats-page-amount-item-background-color: #F9F8F8;
-    --stats-page-amount-item-font-size: var(--tgm-sys-font-size-20);
-    --stats-page-amount-item-border-radius: var(--tgm-sys-border-radius-medium);
-    --stats-page-amount-item-gap: var(--tgm-sys-gap-15);
-    --stats-page-amount-item-padding: var(--tgm-sys-padding-25) var(--tgm-sys-padding-30);
-
-    // Variables para .stats-page__amount-label
-    --stats-page-amount-label-gap: var(--tgm-sys-gap-10);
-    --stats-page-amount-label-font-weight: var(--tgm-sys-font-weight-500);
-    --stats-page-amount-label-color: #272838;
-
-    // Variables para .stats-page__amount-value
-    --stats-page-amount-value-gap: var(--tgm-sys-gap-10);
-    --stats-page-amount-value-font-weight: var(--tgm-sys-font-weight-600);
-    --stats-page-amount-value-color: #272838;
-    --stats-page-amount-value-icon-font-size: var(--tgm-sys-font-size-25);
-
-    // Variables para .stats-page__stats-bars-container
-    --stats-page-stats-bars-container-height: var(--tgm-sys-percentage-100);
-    --stats-page-stats-bars-container-flex: 1;
-    --stats-page-stats-bars-container-gap: var(--tgm-sys-gap-15);
-
-    // Variables para .stats-page__bar-content
-    --stats-page-bar-content-min-height: 5%;
-    --stats-page-bar-content-flex: 1;
-    --stats-page-bar-content-transition: all 0.5s ease;
-    --stats-page-bar-content-border-radius: var(--tgm-sys-border-radius-small);
-    --stats-page-bar-content-left-bar-background: #272838;
-    --stats-page-bar-content-right-bar-background: #F3DE8A;
-
-    // Variables para .stats-page__right-side
-    --stats-page-right-side-width: var(--tgm-sys-width-400);
-    --stats-page-right-side-gap: var(--tgm-sys-gap-30);
-
-    // Variables para .stats-page__calendar
-    --stats-page-calendar-width: var(--tgm-sys-percentage-100);
-    --stats-page-calendar-border-radius: var(--tgm-sys-border-radius-medium);
-
-    // Variables para .stats-page__daily-movements
-    --stats-page-daily-movements-width: var(--tgm-sys-percentage-100);
-    --stats-page-daily-movements-min-height: var(--tgm-sys-height-300);
-    --stats-page-daily-movements-max-height: var(--tgm-sys-height-250);
-    --stats-page-daily-movements-gap: var(--tgm-sys-gap-15);
-    --stats-page-daily-movements-padding-right: var(--tgm-sys-padding-8);
-    --stats-page-daily-movements-scrollbar-width: var(--tgm-sys-width-6);
-    --stats-page-daily-movements-scrollbar-border-radius: var(--tgm-sys-border-radius-10);
-    --stats-page-daily-movements-scrollbar-thumb-color: rgba(39, 40, 56, 0.2);
-    --stats-page-daily-movements-scrollbar-thumb-hover-color: rgba(39, 40, 56, 0.4);
-    --stats-page-daily-movements-scrollbar-thumb-active-color: rgba(39, 40, 56, 0.6);
-
-    // Variables para .stats-page__daily-title
-    --stats-page-daily-title-font-size: var(--tgm-sys-font-size-18);
-    --stats-page-daily-title-font-weight: var(--tgm-sys-font-weight-600);
-    --stats-page-daily-title-color: #272838;
-    --stats-page-daily-title-margin: 0;
-
-    // Variables para .stats-page__daily-movement-item
-    --stats-page-daily-movement-item-width: var(--tgm-sys-percentage-100);
-    --stats-page-daily-movement-item-background-color: #F9F8F8;
-    --stats-page-daily-movement-item-font-size: var(--tgm-sys-font-size-16);
-    --stats-page-daily-movement-item-border-radius: var(--tgm-sys-border-radius-small);
-    --stats-page-daily-movement-item-gap: var(--tgm-sys-gap-15);
-    --stats-page-daily-movement-item-padding: var(--tgm-sys-padding-18) var(--tgm-sys-padding-20);
-
-    // Variables para .stats-page__movement-type
-    --stats-page-movement-type-height: var(--tgm-sys-width-40);
-    --stats-page-movement-type-width: var(--tgm-sys-width-40);
-    --stats-page-movement-type-font-weight: var(--tgm-sys-font-weight-500);
-    --stats-page-movement-type-background-color: #272838;
-    --stats-page-movement-type-border-radius: var(--tgm-sys-border-radius-circle);
-    --stats-page-movement-type-gap: var(--tgm-sys-gap-10);
-    --stats-page-movement-type-icon-font-size: var(--tgm-sys-font-size-20);
-
-    // Variables para colores de depósitos y retiros
-    --stats-page-deposit-color: #28a745;
-    --stats-page-withdrawal-color: #dc3545;
-
-    // Variables para calendar ng-deep
-    --stats-page-calendar-header-background: #F9F8F8;
-    --stats-page-calendar-header-color: white;
-    --stats-page-calendar-header-padding: var(--tgm-sys-padding-25) var(--tgm-sys-padding-10);
-    --stats-page-calendar-content-background: #F9F8F8;
-    --stats-page-calendar-selected-background: #F3DE8A;
-    --stats-page-calendar-selected-color: #272838;
-    --stats-page-calendar-today-border-color: #F3DE8A;
-    --stats-page-calendar-hover-background: #F6E5AB;
-    --stats-page-calendar-movements-dot-size: var(--tgm-sys-width-8);
-    --stats-page-calendar-movements-dot-background: #F3DE8A;
-    --stats-page-calendar-movements-dot-selected-background: #272838;
-
-    width: var(--stats-page-host-width);
-    padding: var(--stats-page-host-padding);
-    font-family: var(--stats-page-host-font-family);
+  width: 100%;
+  font-family: var(--tgm-sys-font-family-primary);
 }
 
 .stats-page {
-    width: var(--stats-page-width);
+  width: 100%;
+  display: flex;
+  gap: 32px;
+  box-sizing: border-box;
+
+  // ─── Left Side ───
+  &__left-side {
+    flex: 1;
     display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__section-title {
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    color: var(--sp-color);
+    margin: 0;
+  }
+
+  // ─── Summary Cards ───
+  &__summary-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--sp-card-bg);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    &--expenses .stats-page__summary-icon {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--sp-withdrawal);
+    }
+
+    &--income .stats-page__summary-icon {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--sp-deposit);
+    }
+  }
+
+  &__summary-icon {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: var(--stats-page-gap);
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    font-size: 22px;
+  }
 
-    &__header-title {
-        font-size: var(--tgm-sys-font-size-32);
-        font-weight: var(--tgm-sys-font-weight-700);
-        color: #272838;
-        margin-bottom: var(--tgm-sys-margin-30);
-        margin-left: 140px;
-        text-align: start;
+  &__summary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__summary-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sp-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__summary-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--sp-color);
+  }
+
+  // ─── Chart Bars ───
+  &__chart-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    background: var(--sp-card-bg);
+    border-radius: var(--sp-radius);
+    min-height: 200px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  &__chart-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 80px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  &__chart-bar {
+    width: 100%;
+    min-height: 8%;
+    border-radius: 8px 8px 4px 4px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &--expenses {
+      background: linear-gradient(180deg, var(--sp-dark) 0%, #2d2d4e 100%);
     }
 
-    &__content {
-        height: var(--stats-page-content-height);
-        width: var(--stats-page-content-width);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--stats-page-content-gap);
-        box-sizing: border-box;
+    &--income {
+      background: linear-gradient(180deg, var(--sp-accent) 0%, #e8d06f 100%);
+    }
+  }
+
+  &__chart-bar-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--sp-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  // ─── Right Side ───
+  &__right-side {
+    width: 340px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  // ─── Calendar ───
+  &__calendar {
+    width: 100%;
+    border-radius: var(--sp-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  // ─── Daily Movements ───
+  &__daily-movements {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__daily-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sp-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 4px;
+
+    i {
+      font-size: 18px;
+      color: var(--sp-muted);
+    }
+  }
+
+  &__daily-movement-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--sp-card-bg);
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+
+    &:hover {
+      background: rgba(243, 222, 138, 0.18);
+      transform: translateX(2px);
+    }
+  }
+
+  &__movement-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+
+    i {
+      font-size: 18px;
+      color: #ffffff;
+    }
+  }
+
+  &__movement-central-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  &__movement-description {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sp-color);
+  }
+
+  &__movement-origin {
+    font-size: 11px;
+    color: var(--sp-muted);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  &__movement-amount {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &--deposit {
+      color: var(--sp-deposit);
     }
 
-    &__movements-summary-amount {
-        height: var(--stats-page-movements-summary-amount-height);
-        flex: var(--stats-page-movements-summary-amount-flex);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: var(--stats-page-movements-summary-amount-gap);
+    &--withdrawal {
+      color: var(--sp-withdrawal);
+    }
+  }
+
+  &__no-movements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    color: var(--sp-muted);
+    gap: 6px;
+
+    i {
+      font-size: 36px;
+      opacity: 0.4;
     }
 
-    &__amount-item {
-        width: var(--stats-page-amount-item-width);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--stats-page-amount-item-background-color);
-        font-size: var(--stats-page-amount-item-font-size);
-        border-radius: var(--stats-page-amount-item-border-radius);
-        gap: var(--stats-page-amount-item-gap);
-        padding: var(--stats-page-amount-item-padding);
+    span {
+      font-size: 13px;
+    }
+  }
+}
+
+// ─── Calendar Deep Styles ───
+.stats-page__calendar {
+  ::ng-deep {
+    .mat-calendar-header {
+      background: #f9f8f8;
+      padding: 16px 10px;
     }
 
-    &__amount-label {
-        display: flex;
-        align-items: center;
-        gap: var(--stats-page-amount-label-gap);
-        font-weight: var(--stats-page-amount-label-font-weight);
-        color: var(--stats-page-amount-label-color);
+    .mat-calendar-controls {
+      margin: 0;
     }
 
-    &__amount-value {
-        display: flex;
-        align-items: center;
-        gap: var(--stats-page-amount-value-gap);
-        font-weight: var(--stats-page-amount-value-font-weight);
-        color: var(--stats-page-amount-value-color);
-
-        i {
-            font-size: var(--stats-page-amount-value-icon-font-size);
-        }
+    .mat-calendar-content {
+      background: #f9f8f8;
     }
 
-    &__stats-bars-container {
-        height: var(--stats-page-stats-bars-container-height);
-        flex: var(--stats-page-stats-bars-container-flex);
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: var(--stats-page-stats-bars-container-gap);
+    .mat-calendar-body-selected {
+      background-color: #f3de8a !important;
+      color: #272838 !important;
+      box-shadow: none !important;
     }
 
-    &__bar-content {
-        min-height: var(--stats-page-bar-content-min-height);
-        flex: var(--stats-page-bar-content-flex);
-        transition: var(--stats-page-bar-content-transition);
-        border-radius: var(--stats-page-bar-content-border-radius);
-
-        &--left-bar {
-            background-color: var(--stats-page-bar-content-left-bar-background);
-        }
-
-        &--right-bar {
-            background-color: var(--stats-page-bar-content-right-bar-background);
-        }
-
+    .mat-calendar-body-cell-content:hover {
+      box-shadow: none;
     }
+
+    .mat-calendar-body-today {
+      border-color: #f3de8a !important;
+    }
+
+    .mat-focus-indicator:hover {
+      background-color: #f6e5ab !important;
+    }
+
+    .mat-calendar-previous-button:hover,
+    .mat-calendar-next-button:hover {
+      background-color: #f6e5ab !important;
+    }
+
+    .has-movements::after {
+      content: '';
+      position: absolute;
+      top: 25%;
+      left: 70%;
+      width: 8px;
+      height: 8px;
+      background-color: #f3de8a;
+      border-radius: 50%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .mat-calendar-body-selected.has-movements::after {
+      background-color: #272838 !important;
+    }
+  }
+}
+
+// ─── Responsive ───
+@media (max-width: 900px) {
+  .stats-page {
+    flex-direction: column;
 
     &__right-side {
-        width: var(--stats-page-right-side-width);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--stats-page-right-side-gap);
+      width: 100%;
     }
 
-    &__calendar {
-        width: var(--stats-page-calendar-width);
-        border-radius: var(--stats-page-calendar-border-radius);
-        overflow: hidden;
+    &__chart-container {
+      min-height: 160px;
     }
-
-    &__daily-movements {
-        width: var(--stats-page-daily-movements-width);
-        min-height: var(--stats-page-daily-movements-min-height);
-        max-height: var(--stats-page-daily-movements-max-height);
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
-        gap: var(--stats-page-daily-movements-gap);
-        padding-right: var(--stats-page-daily-movements-padding-right);
-
-        // Scrollbar moderno y minimalista
-        &::-webkit-scrollbar {
-            width: var(--stats-page-daily-movements-scrollbar-width);
-        }
-
-        &::-webkit-scrollbar-track {
-            background: transparent;
-            border-radius: var(--stats-page-daily-movements-scrollbar-border-radius);
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: var(--stats-page-daily-movements-scrollbar-thumb-color);
-            border-radius: var(--stats-page-daily-movements-scrollbar-border-radius);
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background: var(--stats-page-daily-movements-scrollbar-thumb-hover-color);
-            }
-
-            &:active {
-                background: var(--stats-page-daily-movements-scrollbar-thumb-active-color);
-            }
-        }
-
-        &::-webkit-scrollbar-button {
-            display: none;
-        }
-
-        &::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-
-        scrollbar-width: thin;
-        scrollbar-color: var(--stats-page-daily-movements-scrollbar-thumb-color) transparent;
-    }
-
-    &__daily-title {
-        font-size: var(--stats-page-daily-title-font-size);
-        font-weight: var(--stats-page-daily-title-font-weight);
-        color: var(--stats-page-daily-title-color);
-        margin: var(--stats-page-daily-title-margin);
-    }
-
-    &__daily-movement-item {
-        width: var(--stats-page-daily-movement-item-width);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--stats-page-daily-movement-item-background-color);
-        font-size: var(--stats-page-daily-movement-item-font-size);
-        border-radius: var(--stats-page-daily-movement-item-border-radius);
-        gap: var(--stats-page-daily-movement-item-gap);
-        padding: var(--stats-page-daily-movement-item-padding);
-    }
-
-    &__movement-type {
-        height: var(--stats-page-movement-type-height);
-        width: var(--stats-page-movement-type-width);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: var(--stats-page-movement-type-font-weight);
-        background-color: var(--stats-page-movement-type-background-color);
-        border-radius: var(--stats-page-movement-type-border-radius);
-        gap: var(--stats-page-movement-type-gap);
-
-        i {
-            font-size: var(--stats-page-movement-type-icon-font-size);
-        }
-    }
-
+  }
 }
 
-.deposit {
-    color: var(--stats-page-deposit-color);
-}
+@media (max-width: 550px) {
+  .stats-page {
+    gap: 20px;
 
-.withdrawal {
-    color: var(--stats-page-withdrawal-color);
-}
-
-.stats-page__calendar {
-    ::ng-deep {
-        .mat-calendar-header {
-            background-color: var(--stats-page-calendar-header-background);
-            color: var(--stats-page-calendar-header-color);
-            padding: var(--stats-page-calendar-header-padding);
-        }
-
-        .mat-calendar-controls {
-            margin: 0;
-        }
-
-        .mat-calendar-content {
-            background-color: var(--stats-page-calendar-content-background);
-        }
-
-
-        .mat-calendar-body-selected {
-            background-color: var(--stats-page-calendar-selected-background) !important;
-            color: var(--stats-page-calendar-selected-color) !important;
-            box-shadow: none !important;
-        }
-
-        .mat-calendar-body-cell-content:hover {
-            box-shadow: none;
-        }
-
-        .mat-calendar-body-today {
-            border-color: var(--stats-page-calendar-today-border-color) !important;
-        }
-
-        .mat-focus-indicator:hover {
-            background-color: var(--stats-page-calendar-hover-background) !important;
-        }
-
-        .mat-calendar-previous-button:hover,
-        .mat-calendar-next-button:hover {
-            background-color: var(--stats-page-calendar-hover-background) !important;
-        }
-
-        .has-movements::after {
-            content: '';
-            position: absolute;
-            top: 25%;
-            left: 70%;
-            width: var(--stats-page-calendar-movements-dot-size);
-            height: var(--stats-page-calendar-movements-dot-size);
-            background-color: var(--stats-page-calendar-movements-dot-background);
-            border-radius: var(--tgm-sys-border-radius-circle);
-            z-index: 10;
-            pointer-events: none;
-            box-sizing: border-box;
-        }
-
-        .mat-calendar-body-selected.has-movements::after {
-            background-color: var(--stats-page-calendar-movements-dot-selected-background) !important;
-            border-color: var(--stats-page-calendar-today-border-color) !important;
-        }
-
-        .mat-calendar-body-today.has-movements::after {
-            border-color: var(--stats-page-calendar-today-border-color) !important;
-        }
+    &__summary-card {
+      padding: 12px 16px;
     }
+
+    &__chart-container {
+      padding: 16px;
+      min-height: 140px;
+    }
+  }
 }

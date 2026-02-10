@@ -1,12 +1,11 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { BankAccountResponse } from '../../../models/response/bankAccountResponse';
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { EmblaSlider } from '../../ui/embla-slider/embla-slider';
-import { StatsPage } from "../stats-page/stats-page";
+import { StatsPage } from '../stats-page/stats-page';
 import { BankAccountService } from '../../../services/bank-account-service/bank-account-service';
-import { ActivatedRoute, RouterLink } from "@angular/router";
-import { HeaderComponent } from "../../ui/header-component/header-component";
-
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../ui/header-component/header-component';
 
 @Component({
   selector: 'app-profile-page',
@@ -17,6 +16,8 @@ import { HeaderComponent } from "../../ui/header-component/header-component";
 export class ProfilePage {
   bankAccountService = inject(BankAccountService);
   activatedRoute = inject(ActivatedRoute);
+
+  @ViewChild('cardSlider') cardSlider!: EmblaSlider;
 
   accounts!: BankAccountResponse[];
   selectedAccount!: BankAccountResponse;
@@ -31,12 +32,15 @@ export class ProfilePage {
           console.log(accounts);
 
           this.selectedAccount = this.accounts[0];
-        }
+        },
       });
     }
   }
 
   onAccountSelected(itemIndex: number) {
     this.selectedAccount = this.accounts[itemIndex];
+    if (this.cardSlider) {
+      this.cardSlider.scrollTo(0);
+    }
   }
 }

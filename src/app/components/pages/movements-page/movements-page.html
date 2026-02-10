@@ -1,70 +1,129 @@
 <div class="movements-page">
-    <a routerLink="/bank/profile/{{user.id}}">
-        <i class='bx  bx-arrow-left-stroke' style='color:#272838'></i>
-    </a>
-    <div class="movements-page__left-side">
-        <div class="movements-page__account-container">
-            <h3>{{ user.username.toUpperCase() }}</h3>
-            <h1>{{ account.balance | currency }}</h1>
-            <p>{{ account.iban }}</p>
-        </div>
-        <div class="movements-page__movements-list">
-            @for (movement of movements; track $index) {
-            <div class="movements-page__movement-item" (click)="onSelectedMovement(movement.id)">
-                <span class="movements-page__movement-type">
-                    <i class="bx" [ngClass]="{
-                                        'bx-trending-up deposit': movement.type == 'DEPOSIT',
-                                        'bx-trending-down withdrawal': movement.type == 'WITHDRAWAL'
-                                    }">
-                    </i>
-                </span>
-                <div class="movements-page__movement-central-info">
-                    <span class="movements-page__movement-description">{{ movement.origin
-                        }}</span>
-                    <span class="movements-page__movement-date">{{ movement.date |
-                        date:'shortDate'
-                        }}</span>
+    <div class="movements-page__inner">
+        <div class="movements-page__left-side">
+            <a class="movements-page__back-btn" routerLink="/bank/profile/{{user.id}}">
+                <i class='bx bx-arrow-back'></i>
+                <span>Volver</span>
+            </a>
+            <div class="movements-page__account-container">
+                <span class="movements-page__account-label">Titular de la cuenta</span>
+                <h3 class="movements-page__account-username">{{ user.username.toUpperCase() }}</h3>
+                <h1 class="movements-page__account-balance">{{ account.balance | currency }}</h1>
+                <p class="movements-page__account-iban">{{ account.iban }}</p>
+            </div>
+            <div class="movements-page__movements-list">
+                <h3 class="movements-page__list-title">Todos los Movimientos</h3>
+                @for (movement of movements; track $index) {
+                <div class="movements-page__movement-item" (click)="onSelectedMovement(movement.id)">
+                    <span class="movements-page__movement-type">
+                        <i class="bx" [ngClass]="{
+                            'bx-trending-up deposit': movement.type == 'DEPOSIT',
+                            'bx-trending-down withdrawal': movement.type == 'WITHDRAWAL'
+                        }"></i>
+                    </span>
+                    <div class="movements-page__movement-central-info">
+                        <span class="movements-page__movement-description">
+                            @if (movement.type == 'DEPOSIT') { Depósito } @else { Retiro }
+                        </span>
+                        <div class="movements-page__movement-meta">
+                            <span class="movements-page__movement-origin">
+                                @switch (movement.origin) {
+                                @case ('BANK_ACCOUNT') { <i class="bx bx-building"></i> Cuenta }
+                                @case ('BANK_CARD') { <i class="bx bx-credit-card"></i> Tarjeta }
+                                @case ('DOMICILIATION') { <i class="bx bx-file"></i> Domiciliación }
+                                }
+                            </span>
+                            <span class="movements-page__movement-date">{{ movement.date | date:'d MMM y' }}</span>
+                        </div>
+                    </div>
+                    <span class="movements-page__movement-amount" [ngClass]="{
+                        'deposit': movement.type == 'DEPOSIT',
+                        'withdrawal': movement.type == 'WITHDRAWAL'
+                    }">
+                        {{ movement.type == 'DEPOSIT' ? '+' : '-' }}{{ movement.amount | currency }}
+                    </span>
                 </div>
-                <span class="movements-page__movement-amount">
-                    @if (movement.type == 'WITHDRAWAL') {
-                    -
-                    } @else {
-                    +
+                }
+                @if (movements.length === 0) {
+                <div class="movements-page__no-movements">
+                    <i class="bx bx-receipt"></i>
+                    <span>No se encontraron movimientos</span>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="movements-page__right-side">
+            @if (selectedMovements) {
+            <div class="movements-page__detail-card">
+                <div class="movements-page__detail-header">
+                    <div class="movements-page__detail-icon" [ngClass]="{
+                        'movements-page__detail-icon--deposit': selectedMovements.type == 'DEPOSIT',
+                        'movements-page__detail-icon--withdrawal': selectedMovements.type == 'WITHDRAWAL'
+                    }">
+                        <i class='bx' [ngClass]="{
+                            'bx-trending-up': selectedMovements.type == 'DEPOSIT',
+                            'bx-trending-down': selectedMovements.type == 'WITHDRAWAL'
+                        }"></i>
+                    </div>
+                    <span class="movements-page__detail-type">
+                        @if (selectedMovements.type == 'DEPOSIT') { Depósito } @else { Retiro }
+                    </span>
+                    <span class="movements-page__detail-amount">
+                        {{ selectedMovements.type == 'DEPOSIT' ? '+' : '-' }}{{ selectedMovements.amount | currency }}
+                    </span>
+                    <span class="movements-page__detail-date">
+                        {{ selectedMovements.date | date:'d MMMM y' }} · {{
+                        selectedMovements.date | date:'HH:mm' }}h
+                    </span>
+                </div>
+                <div class="movements-page__detail-body">
+                    <div class="movements-page__detail-row">
+                        <div class="movements-page__detail-row-icon">
+                            <i class="bx bx-transfer-alt"></i>
+                        </div>
+                        <div class="movements-page__detail-row-content">
+                            <span class="movements-page__detail-label">Origen</span>
+                            <span class="movements-page__detail-value">
+                                @switch (selectedMovements.origin) {
+                                @case ('BANK_ACCOUNT') { Cuenta Bancaria }
+                                @case ('BANK_CARD') { Tarjeta de Crédito }
+                                @case ('DOMICILIATION') { Domiciliación }
+                                }
+                            </span>
+                        </div>
+                    </div>
+                    @if (selectedMovements.creditCard) {
+                    <div class="movements-page__detail-row">
+                        <div class="movements-page__detail-row-icon">
+                            <i class="bx bx-credit-card"></i>
+                        </div>
+                        <div class="movements-page__detail-row-content">
+                            <span class="movements-page__detail-label">Tarjeta de Crédito</span>
+                            <span class="movements-page__detail-value">{{ selectedMovements.creditCard.number }}</span>
+                        </div>
+                    </div>
                     }
-                    {{ movement.amount | currency}}</span>
+                    <div class="movements-page__detail-row">
+                        <div class="movements-page__detail-row-icon">
+                            <i class="bx bx-note"></i>
+                        </div>
+                        <div class="movements-page__detail-row-content">
+                            <span class="movements-page__detail-label">Concepto</span>
+                            <span class="movements-page__detail-value">{{ selectedMovements.concept || '—' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            } @else {
+            <div class="movements-page__no-selection">
+                <div class="movements-page__no-selection-icon">
+                    <i class="bx bx-pointer"></i>
+                </div>
+                <span class="movements-page__no-selection-title">Sin movimiento seleccionado</span>
+                <span class="movements-page__no-selection-subtitle">Selecciona un movimiento de la lista para ver sus
+                    detalles</span>
             </div>
             }
         </div>
-    </div>
-    <div class="movements-page__right-side">
-        @if (selectedMovements) {
-        <div class="movements-page__movement-detail-header">
-            <span class="movements-page__movement-type movements-page__movement-type--header">
-                <i class='bx  bx-trending-down' style='color:#F9F8F8'
-                    [class.bx-trending-up]="selectedMovements.type == 'DEPOSIT'"></i>
-            </span>
-            <div class="movements-page__movement-central-info">
-                <span class="movements-page__movement-description">{{ selectedMovements.origin
-                    }}</span>
-            </div>
-            <span class="movements-page__movement-amount movements-page__movement-amount--header">{{
-                selectedMovements.amount | currency
-                }}</span>
-            <span class="movements-page__movement-date movements-page__movement-date--header">
-                {{ selectedMovements.date | date:'shortDate' }} a las {{
-                selectedMovements.date | date:'HH:mm' }}h.
-            </span>
-        </div>
-        <div class="movements-page__movements-detail-body">
-            <div class="movements-page__movements-detail-item">
-                <h2>Credit Card</h2>
-                <p>{{ selectedMovements.creditCard?.number }}</p>
-            </div>
-            <div class="movements-page__movements-detail-item">
-                <h2>Description</h2>
-                <p>{{ selectedMovements?.concept }}</p>
-            </div>
-        </div>
-        }
     </div>
 </div>
