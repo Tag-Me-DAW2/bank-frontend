@@ -85,11 +85,9 @@ export class ProfilePage {
     return this.cardDetails.get(cardId);
   }
 
-  formatExpirationDate(date: Date): string {
+  formatExpirationDate(date: string | undefined): string {
     if (!date) return 'MM/YY';
-    const d = new Date(date);
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const year = String(d.getFullYear()).slice(-2);
-    return `${month}/${year}`;
+    // El backend ya envía el formato correcto MM/YY
+    return date;
   }
 }
