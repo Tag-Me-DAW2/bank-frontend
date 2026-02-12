@@ -80,22 +80,61 @@
                 </h2>
                 <embla-slider #cardSlider direction="vertical">
                     @for (card of selectedAccount.cards; track $index) {
-                    <a class="profile-page__card-container" [routerLink]="['/bank/movements/', selectedAccount.id]"
-                        [queryParams]="{ cardId: card.id }">
-                        <div class="profile-page__card-top">
-                            <div class="profile-page__card-chip">
-                                <i class="bx bxs-chip"></i>
+                    <div class="profile-page__card-flip-container" [class.flipped]="isCardFlipped(card.id)"
+                        (click)="toggleCardFlip(card.id, $event)">
+
+                        <!-- Card Front -->
+                        <a class="profile-page__card-container profile-page__card-front"
+                            [routerLink]="['/bank/movements/', selectedAccount.id]" [queryParams]="{ cardId: card.id }">
+                            <div class="profile-page__card-top">
+                                <div class="profile-page__card-chip">
+                                    <i class="bx bxs-chip"></i>
+                                </div>
+                                <div class="profile-page__card-contactless">
+                                    <i class="bx bx-wifi"></i>
+                                </div>
                             </div>
-                            <div class="profile-page__card-contactless">
-                                <i class="bx bx-wifi"></i>
+                            <div class="profile-page__card-number">{{ card.number }}</div>
+                            <div class="profile-page__card-bottom">
+                                <div class="profile-page__card-bottom-info">
+                                    <div class="profile-page__card-label">Titular</div>
+                                    <div class="profile-page__card-holder">{{ card.fullName }}</div>
+                                </div>
+                                <span class="profile-page__card-brand">VISA</span>
+                            </div>
+                            <button class="profile-page__card-flip-btn" type="button"
+                                title="Ver CVV y fecha de expiración" (click)="toggleCardFlip(card.id, $event)">
+                                <i class="bx bx-show"></i>
+                            </button>
+                        </a>
+
+                        <!-- Card Back -->
+                        <div class="profile-page__card-container profile-page__card-back">
+                            <div class="profile-page__card-magnetic-strip"></div>
+                            <div class="profile-page__card-back-content">
+                                <div class="profile-page__card-security-info">
+                                    <div class="profile-page__card-data-row">
+                                        <div class="profile-page__card-data-item">
+                                            <span class="profile-page__card-data-label">CVV</span>
+                                            <span class="profile-page__card-data-value">{{ getCardDetail(card.id)?.cvv
+                                                || '•••' }}</span>
+                                        </div>
+                                        <div class="profile-page__card-data-item">
+                                            <span class="profile-page__card-data-label">Válida hasta</span>
+                                            <span class="profile-page__card-data-value">{{
+                                                formatExpirationDate(getCardDetail(card.id)?.expirationDate!) }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile-page__card-back-footer">
+                                    <span class="profile-page__card-brand-back">VISA</span>
+                                    <div class="profile-page__card-flip-hint">
+                                        <i class="bx bx-revision"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="profile-page__card-number">{{ card.number }}</div>
-                        <div class="profile-page__card-bottom">
-                            <div class="profile-page__card-holder">{{ card.fullName }}</div>
-                            <span class="profile-page__card-brand">VISA</span>
-                        </div>
-                    </a>
+                    </div>
                     }
                     @if (selectedAccount.cards.length === 0) {
                     <div class="profile-page__no-cards">
