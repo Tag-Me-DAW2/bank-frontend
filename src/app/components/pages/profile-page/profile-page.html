@@ -6,7 +6,8 @@
             <div class="profile-page__account-container">
                 <embla-slider direction="horizontal" (selectedItemIndex)="onAccountSelected($event)">
                     @for (account of accounts; track $index) {
-                    <a class="profile-page__account-card">
+                    <a class="profile-page__account-card"
+                        [class.profile-page__account-card--single]="accounts.length === 1">
                         <div class="profile-page__account-card-header">
                             <span class="profile-page__account-label">Cuenta</span>
                             <span class="profile-page__account-number">{{ account.iban }}</span>
