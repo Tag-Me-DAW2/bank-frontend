@@ -353,10 +353,28 @@
   }
 
   // ─── Credit Card (Pure CSS) ───
-  &__card-container {
-    cursor: pointer;
+  &__card-flip-container {
     flex: 0 0 46%;
     width: 100%;
+    perspective: 1200px;
+    cursor: pointer;
+    position: relative;
+    min-height: 180px;
+
+    &.flipped {
+      .profile-page__card-front {
+        transform: rotateY(180deg);
+      }
+      .profile-page__card-back {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+
+  &__card-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 16px;
     background: linear-gradient(145deg, #1a1a2e 0%, #16213e 45%, #0f3460 100%);
     box-shadow: 0 8px 24px rgba(15, 52, 96, 0.25);
@@ -366,11 +384,13 @@
     padding: 20px 22px;
     box-sizing: border-box;
     transition:
-      transform 0.3s ease,
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 0.3s ease;
     text-decoration: none;
-    position: relative;
     overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
 
     &::before {
       content: '';
@@ -397,9 +417,20 @@
     }
 
     &:hover {
-      transform: translateY(-4px) scale(1.01);
       box-shadow: 0 14px 36px rgba(15, 52, 96, 0.35);
     }
+  }
+
+  &__card-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+
+  &__card-back {
+    transform: rotateY(-180deg);
+    background: linear-gradient(145deg, #16213e 0%, #1a1a2e 45%, #0f3460 100%);
+    padding: 0;
+    z-index: 1;
   }
 
   &__card-top {
@@ -443,9 +474,23 @@
     z-index: 1;
   }
 
+  &__card-bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__card-label {
+    font-size: 7px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
   &__card-holder {
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.85);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
@@ -457,6 +502,137 @@
     font-style: italic;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 2px;
+  }
+
+  // ─── Card Flip Button ───
+  &__card-flip-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.9);
+
+    i {
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.1);
+
+      i {
+        transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  // ─── Card Back Styles ───
+  &__card-magnetic-strip {
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #000000 100%);
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  &__card-back-content {
+    padding: 22px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+  }
+
+  &__card-security-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  &__card-data-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px 14px;
+    backdrop-filter: blur(10px);
+  }
+
+  &__card-data-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__card-data-label {
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  &__card-data-value {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+
+  &__card-back-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  &__card-brand-back {
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 2px;
+  }
+
+  &__card-flip-hint {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+
+    i {
+      font-size: 18px;
+    }
   }
 
   &__no-cards {
@@ -514,8 +690,12 @@
       padding-bottom: 8px;
     }
 
-    &__card-container {
+    &__card-flip-container {
       flex: 0 0 260px;
+      min-height: 160px;
+    }
+
+    &__card-container {
       min-height: 160px;
     }
 
