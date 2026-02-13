@@ -26,8 +26,8 @@ export class LoginPage {
       },
       error: (error) => {
         this.alertService.error({
-          title: 'Login Failed',
-          text: error.error.message || 'An unexpected error occurred during login.',
+          title: 'Error de inicio de sesión',
+          text: error.error.message || 'Ocurrió un error inesperado durante el inicio de sesión.',
         });
       },
     });
