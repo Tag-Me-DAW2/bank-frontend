@@ -80,8 +80,7 @@
                 </h2>
                 <embla-slider #cardSlider direction="vertical">
                     @for (card of selectedAccount.cards; track $index) {
-                    <div class="profile-page__card-flip-container" [class.flipped]="isCardFlipped(card.id)"
-                        (click)="toggleCardFlip(card.id, $event)">
+                    <div class="profile-page__card-flip-container" [class.flipped]="isCardFlipped(card.id)">
 
                         <!-- Card Front -->
                         <a class="profile-page__card-container profile-page__card-front"
@@ -102,11 +101,11 @@
                                 </div>
                                 <span class="profile-page__card-brand">VISA</span>
                             </div>
-                            <button class="profile-page__card-flip-btn" type="button"
-                                title="Ver CVV y fecha de expiración" (click)="toggleCardFlip(card.id, $event)">
-                                <i class="bx bx-show"></i>
-                            </button>
                         </a>
+                        <button class="profile-page__card-flip-btn" type="button" title="Ver CVV y fecha de expiración"
+                            (click)="toggleCardFlip(card.id, $event)">
+                            <i class="bx bx-show"></i>
+                        </button>
 
                         <!-- Card Back -->
                         <div class="profile-page__card-container profile-page__card-back">
